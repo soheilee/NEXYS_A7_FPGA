@@ -152,7 +152,7 @@ end
 //==========================================================================
 // single_de = bitmap of which digits in single_out are significant
 //==========================================================================
-always @* begin
+/*always @* begin
     if      (single_out[31:04] == 0) single_de = 8'b00000001;
     else if (single_out[31:08] == 0) single_de = 8'b00000011;
     else if (single_out[31:12] == 0) single_de = 8'b00000111;
@@ -161,8 +161,18 @@ always @* begin
     else if (single_out[31:24] == 0) single_de = 8'b00111111;
     else if (single_out[31:28] == 0) single_de = 8'b01111111;
     else                             single_de = 8'b11111111;
-end
+end*/
 //==========================================================================
+always @* begin
+    if      (single_out[31:04] == 0) single_de = 8'b00000111;
+    else if (single_out[31:08] == 0) single_de = 8'b00000111;
+    else if (single_out[31:12] == 0) single_de = 8'b00000111;
+    else if (single_out[31:16] == 0) single_de = 8'b00001111;
+    else if (single_out[31:20] == 0) single_de = 8'b00011111;
+    else if (single_out[31:24] == 0) single_de = 8'b00111111;
+    else if (single_out[31:28] == 0) single_de = 8'b01111111;
+    else                             single_de = 8'b11111111;
+end
 
 
 //==========================================================================

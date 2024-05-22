@@ -10,7 +10,6 @@ module sevenseg_driver # (parameter CLOCK_FREQ = 100000000)
 (
     // Clock and rese3t
     input   clk, resetn,
-    
     // The value to display, 4 bits per digit
     input[31:0] display,
     
@@ -18,7 +17,7 @@ module sevenseg_driver # (parameter CLOCK_FREQ = 100000000)
     input[7:0] digit_enable, 
     
     // Active-low cathode and anode for the 7-seg digits
-    output[7:0] ANODE,
+    output [7:0] ANODE,
     output reg[7:0] CATHODE
 );
 
@@ -59,8 +58,13 @@ always @(posedge clk) begin
         end else begin
             anode   <= anode << 1;
             shifter <= shifter >> 4;
+            
         end
-        counter <= ONE_MS;
+        counter <= ONE_MS;        
+        // Wrap-around logic
+        if (shifter[3:0] > 4'h9) begin
+            shifter[3:0] <= 4'h0;
+        end
    end
    
 end
@@ -85,26 +89,24 @@ always @* begin
     if ((digit_enable & anode) == 0)
         CATHODE = ~(8'b0000_0000);
     else case (shifter[3:0])
-        4'h0  : CATHODE = ~(8'b0011_1111);
-        4'h1  : CATHODE = ~(8'b0000_0110);
-        4'h2  : CATHODE = ~(8'b0101_1011);
-        4'h3  : CATHODE = ~(8'b0100_1111);
-        4'h4  : CATHODE = ~(8'b0110_0110);
-        4'h5  : CATHODE = ~(8'b0110_1101);
-        4'h6  : CATHODE = ~(8'b0111_1101);
-        4'h7  : CATHODE = ~(8'b0000_0111);
-        4'h8  : CATHODE = ~(8'b0111_1111);
-        4'h9  : CATHODE = ~(8'b0110_0111);
-        4'hA  : CATHODE = ~(8'b0111_0111);
-        4'hB  : CATHODE = ~(8'b0111_1100);
-        4'hC  : CATHODE = ~(8'b0011_1001);
-        4'hD  : CATHODE = ~(8'b0101_1110);
-        4'hE  : CATHODE = ~(8'b0111_1001);
-        4'hF  : CATHODE = ~(8'b0111_0001);
+        4'h0  : CATHODE = (anode==4||anode==16||anode==64)? ~(8'b1011_1111) : ~(8'b0011_1111);
+        4'h1  : CATHODE = (anode==4||anode==16||anode==64)? ~(8'b1000_0110) : ~(8'b0000_0110);
+        4'h2  : CATHODE = (anode==4||anode==16||anode==64)? ~(8'b1101_1011) : ~(8'b0101_1011);
+        4'h3  : CATHODE = (anode==4||anode==16||anode==64)? ~(8'b1100_1111) : ~(8'b0100_1111);
+        4'h4  : CATHODE = (anode==4||anode==16||anode==64)? ~(8'b1110_0110) : ~(8'b0110_0110);
+        4'h5  : CATHODE = (anode==4||anode==16||anode==64)? ~(8'b1110_1101) : ~(8'b0110_1101);
+        4'h6  : CATHODE = (anode==4||anode==16||anode==64)? ~(8'b1111_1101) : ~(8'b0111_1101);
+        4'h7  : CATHODE = (anode==4||anode==16||anode==64)? ~(8'b1000_0111) : ~(8'b0000_0111);
+        4'h8  : CATHODE = (anode==4||anode==16||anode==64)? ~(8'b1111_1111) : ~(8'b0111_1111);
+        4'h9  : CATHODE = (anode==4||anode==16||anode==64)? ~(8'b1110_0111) : ~(8'b0110_0111);
     endcase
-end
+    /*if (shifter >=10) begin
+        shifter <=0;
+    end */   
+        
 //=============================================================================
 
+end
 
 endmodule
 
