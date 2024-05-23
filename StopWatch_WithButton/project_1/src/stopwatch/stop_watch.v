@@ -15,7 +15,7 @@ always @(posedge clk) begin
         counter_10ms <= counter_10ms - 1;
     end
     else begin
-        counter_10ms <= 500000;
+        counter_10ms <= 1000000;
         clk_100hz <= ~clk_100hz;
     end
 end
@@ -29,8 +29,17 @@ always @(posedge clk_100hz or posedge reset_stopwatch) begin
         sevenseg <= 0;
     end
     else if(pushed) begin
-       sevenseg <= sevenseg + 1;   
+        if (sevenseg % 10000 == 5959) begin
+            sevenseg <= sevenseg + 4041;
+        end
+        else if (sevenseg % 100 == 59) begin
+            sevenseg <= sevenseg + 41;
+        end
+        else begin
+            sevenseg <= sevenseg + 1;  
+        end 
     end
+
 end
 
 endmodule
