@@ -34,7 +34,7 @@ levelinfo -pg 1 0 170 420 700 1030 1200
 pagesize -pg 1 -db -bbox -sgen -150 0 1310 370
 ",
    "No Loops_ScaleFactor":"0.852654",
-   "No Loops_TopLeft":"-142,-100",
+   "No Loops_TopLeft":"-122,-100",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
 preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 110 -y 60 -defaultsOSRD

@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
-// Date        : Mon Jun  3 16:05:43 2024
+// Date        : Mon Jun  3 16:39:26 2024
 // Host        : LUDMW030265 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/mottaghs/Documents/FPGA/FPGA_2024/StopWatch_MinimalLogic/project_1/project_1.gen/sources_1/bd/top_level/ip/top_level_stop_watch_0_0/top_level_stop_watch_0_0_sim_netlist.v
@@ -211,12 +211,10 @@ module top_level_stop_watch_0_0_stop_watch
   wire \counter_10ms_reg[8]_i_1_n_7 ;
   wire [4:0]digital_enable;
   wire eighth_digit_i_1_n_0;
-  wire eighth_digit_i_2_n_0;
   wire eighth_digit_reg_n_0;
   wire fifth_digit_i_1_n_0;
   wire fifth_digit_reg_n_0;
   wire fourth_digit_i_1_n_0;
-  wire fourth_digit_i_2_n_0;
   wire fourth_digit_reg_n_0;
   wire hour_hundreds;
   wire \hour_hundreds[0]_i_1_n_0 ;
@@ -272,10 +270,8 @@ module top_level_stop_watch_0_0_stop_watch
   wire \sec_units[3]_i_1_n_0 ;
   wire [3:0]\sec_units_reg[3]_0 ;
   wire seventh_digit_i_1_n_0;
-  wire seventh_digit_i_2_n_0;
   wire seventh_digit_reg_n_0;
   wire sixth_digit_i_1_n_0;
-  wire sixth_digit_i_2_n_0;
   wire sixth_digit_reg_n_0;
   wire startstop;
   wire [3:3]\NLW_counter_10ms_reg[28]_i_1_CO_UNCONNECTED ;
@@ -819,74 +815,59 @@ module top_level_stop_watch_0_0_stop_watch
         .G(eighth_digit_reg_n_0),
         .GE(1'b1),
         .Q(digital_enable[4]));
-  LUT4 #(
-    .INIT(16'hFF04)) 
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00200000)) 
     eighth_digit_i_1
-       (.I0(newstart_stopwatch),
-        .I1(pushed),
-        .I2(eighth_digit_i_2_n_0),
-        .I3(eighth_digit_reg_n_0),
-        .O(eighth_digit_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
-  LUT4 #(
-    .INIT(16'hFFDF)) 
-    eighth_digit_i_2
-       (.I0(\hour_hundreds_reg[3]_0 [1]),
-        .I1(\hour_hundreds_reg[3]_0 [2]),
+       (.I0(pushed),
+        .I1(\hour_hundreds_reg[3]_0 [0]),
         .I2(\hour_hundreds_reg[3]_0 [3]),
-        .I3(\hour_hundreds_reg[3]_0 [0]),
-        .O(eighth_digit_i_2_n_0));
-  FDRE #(
+        .I3(\hour_hundreds_reg[3]_0 [2]),
+        .I4(\hour_hundreds_reg[3]_0 [1]),
+        .I5(eighth_digit_reg_n_0),
+        .O(eighth_digit_i_1_n_0));
+  FDCE #(
     .INIT(1'b0)) 
     eighth_digit_reg
        (.C(clk_100hz),
         .CE(1'b1),
+        .CLR(newstart_stopwatch),
         .D(eighth_digit_i_1_n_0),
-        .Q(eighth_digit_reg_n_0),
-        .R(1'b0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFF04000000)) 
+        .Q(eighth_digit_reg_n_0));
+  LUT5 #(
+    .INIT(32'hFFFF2000)) 
     fifth_digit_i_1
-       (.I0(newstart_stopwatch),
-        .I1(pushed),
-        .I2(\min_tens_reg[0]_0 ),
-        .I3(\min_tens_reg[1]_0 ),
-        .I4(\min_tens_reg[2]_0 ),
-        .I5(fifth_digit_reg_n_0),
+       (.I0(pushed),
+        .I1(\min_tens_reg[0]_0 ),
+        .I2(\min_tens_reg[1]_0 ),
+        .I3(\min_tens_reg[2]_0 ),
+        .I4(fifth_digit_reg_n_0),
         .O(fifth_digit_i_1_n_0));
-  FDRE #(
+  FDCE #(
     .INIT(1'b0)) 
     fifth_digit_reg
        (.C(clk_100hz),
         .CE(1'b1),
+        .CLR(newstart_stopwatch),
         .D(fifth_digit_i_1_n_0),
-        .Q(fifth_digit_reg_n_0),
-        .R(1'b0));
-  LUT4 #(
-    .INIT(16'hFF04)) 
+        .Q(fifth_digit_reg_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00200000)) 
     fourth_digit_i_1
-       (.I0(newstart_stopwatch),
-        .I1(pushed),
-        .I2(fourth_digit_i_2_n_0),
-        .I3(fourth_digit_reg_n_0),
-        .O(fourth_digit_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
-  LUT4 #(
-    .INIT(16'hFFDF)) 
-    fourth_digit_i_2
-       (.I0(\min_units_reg[3]_0 [1]),
-        .I1(\min_units_reg[3]_0 [2]),
+       (.I0(pushed),
+        .I1(\min_units_reg[3]_0 [0]),
         .I2(\min_units_reg[3]_0 [3]),
-        .I3(\min_units_reg[3]_0 [0]),
-        .O(fourth_digit_i_2_n_0));
-  FDRE #(
+        .I3(\min_units_reg[3]_0 [2]),
+        .I4(\min_units_reg[3]_0 [1]),
+        .I5(fourth_digit_reg_n_0),
+        .O(fourth_digit_i_1_n_0));
+  FDCE #(
     .INIT(1'b0)) 
     fourth_digit_reg
        (.C(clk_100hz),
         .CE(1'b1),
+        .CLR(newstart_stopwatch),
         .D(fourth_digit_i_1_n_0),
-        .Q(fourth_digit_reg_n_0),
-        .R(1'b0));
+        .Q(fourth_digit_reg_n_0));
   (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
     .INIT(32'h51550000)) 
@@ -907,6 +888,7 @@ module top_level_stop_watch_0_0_stop_watch
         .I3(\hour_hundreds_reg[3]_0 [3]),
         .I4(\hour_hundreds_reg[3]_0 [0]),
         .O(\hour_hundreds[1]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT4 #(
     .INIT(16'h28A0)) 
     \hour_hundreds[2]_i_1 
@@ -987,6 +969,7 @@ module top_level_stop_watch_0_0_stop_watch
         .I3(\hour_tens_reg[3]_0 [2]),
         .I4(\hour_tens_reg[3]_0 [1]),
         .O(\hour_tens[1]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'h28A0)) 
     \hour_tens[2]_i_1 
@@ -1162,7 +1145,6 @@ module top_level_stop_watch_0_0_stop_watch
         .I3(\hour_units_reg[3]_0 [3]),
         .I4(\hour_units_reg[3]_0 [0]),
         .O(\hour_units[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT4 #(
     .INIT(16'h28A0)) 
     \hour_units[2]_i_1 
@@ -1306,7 +1288,6 @@ module top_level_stop_watch_0_0_stop_watch
         .I3(\min_units_reg[3]_0 [3]),
         .I4(\min_units_reg[3]_0 [0]),
         .O(\min_units[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT4 #(
     .INIT(16'h28A0)) 
     \min_units[2]_i_1 
@@ -1513,56 +1494,42 @@ module top_level_stop_watch_0_0_stop_watch
         .CLR(newstart_stopwatch),
         .D(\sec_units[3]_i_1_n_0 ),
         .Q(\sec_units_reg[3]_0 [3]));
-  LUT4 #(
-    .INIT(16'hFF04)) 
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00200000)) 
     seventh_digit_i_1
-       (.I0(newstart_stopwatch),
-        .I1(pushed),
-        .I2(seventh_digit_i_2_n_0),
-        .I3(seventh_digit_reg_n_0),
-        .O(seventh_digit_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT4 #(
-    .INIT(16'hFFDF)) 
-    seventh_digit_i_2
-       (.I0(\hour_tens_reg[3]_0 [1]),
-        .I1(\hour_tens_reg[3]_0 [2]),
+       (.I0(pushed),
+        .I1(\hour_tens_reg[3]_0 [0]),
         .I2(\hour_tens_reg[3]_0 [3]),
-        .I3(\hour_tens_reg[3]_0 [0]),
-        .O(seventh_digit_i_2_n_0));
-  FDRE #(
+        .I3(\hour_tens_reg[3]_0 [2]),
+        .I4(\hour_tens_reg[3]_0 [1]),
+        .I5(seventh_digit_reg_n_0),
+        .O(seventh_digit_i_1_n_0));
+  FDCE #(
     .INIT(1'b0)) 
     seventh_digit_reg
        (.C(clk_100hz),
         .CE(1'b1),
+        .CLR(newstart_stopwatch),
         .D(seventh_digit_i_1_n_0),
-        .Q(seventh_digit_reg_n_0),
-        .R(1'b0));
-  LUT4 #(
-    .INIT(16'hFF04)) 
+        .Q(seventh_digit_reg_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00200000)) 
     sixth_digit_i_1
-       (.I0(newstart_stopwatch),
-        .I1(pushed),
-        .I2(sixth_digit_i_2_n_0),
-        .I3(sixth_digit_reg_n_0),
-        .O(sixth_digit_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT4 #(
-    .INIT(16'hFFDF)) 
-    sixth_digit_i_2
-       (.I0(\hour_units_reg[3]_0 [1]),
-        .I1(\hour_units_reg[3]_0 [2]),
+       (.I0(pushed),
+        .I1(\hour_units_reg[3]_0 [0]),
         .I2(\hour_units_reg[3]_0 [3]),
-        .I3(\hour_units_reg[3]_0 [0]),
-        .O(sixth_digit_i_2_n_0));
-  FDRE #(
+        .I3(\hour_units_reg[3]_0 [2]),
+        .I4(\hour_units_reg[3]_0 [1]),
+        .I5(sixth_digit_reg_n_0),
+        .O(sixth_digit_i_1_n_0));
+  FDCE #(
     .INIT(1'b0)) 
     sixth_digit_reg
        (.C(clk_100hz),
         .CE(1'b1),
+        .CLR(newstart_stopwatch),
         .D(sixth_digit_i_1_n_0),
-        .Q(sixth_digit_reg_n_0),
-        .R(1'b0));
+        .Q(sixth_digit_reg_n_0));
 endmodule
 `ifndef GLBL
 `define GLBL

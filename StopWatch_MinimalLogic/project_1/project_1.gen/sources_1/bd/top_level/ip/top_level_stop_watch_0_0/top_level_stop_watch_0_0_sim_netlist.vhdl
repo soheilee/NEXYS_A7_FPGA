@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
--- Date        : Mon Jun  3 16:05:43 2024
+-- Date        : Mon Jun  3 16:39:26 2024
 -- Host        : LUDMW030265 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/mottaghs/Documents/FPGA/FPGA_2024/StopWatch_MinimalLogic/project_1/project_1.gen/sources_1/bd/top_level/ip/top_level_stop_watch_0_0/top_level_stop_watch_0_0_sim_netlist.vhdl
@@ -145,12 +145,10 @@ architecture STRUCTURE of top_level_stop_watch_0_0_stop_watch is
   signal \counter_10ms_reg[8]_i_1_n_6\ : STD_LOGIC;
   signal \counter_10ms_reg[8]_i_1_n_7\ : STD_LOGIC;
   signal eighth_digit_i_1_n_0 : STD_LOGIC;
-  signal eighth_digit_i_2_n_0 : STD_LOGIC;
   signal eighth_digit_reg_n_0 : STD_LOGIC;
   signal fifth_digit_i_1_n_0 : STD_LOGIC;
   signal fifth_digit_reg_n_0 : STD_LOGIC;
   signal fourth_digit_i_1_n_0 : STD_LOGIC;
-  signal fourth_digit_i_2_n_0 : STD_LOGIC;
   signal fourth_digit_reg_n_0 : STD_LOGIC;
   signal hour_hundreds : STD_LOGIC;
   signal \hour_hundreds[0]_i_1_n_0\ : STD_LOGIC;
@@ -205,10 +203,8 @@ architecture STRUCTURE of top_level_stop_watch_0_0_stop_watch is
   signal \sec_units[3]_i_1_n_0\ : STD_LOGIC;
   signal \^sec_units_reg[3]_0\ : STD_LOGIC_VECTOR ( 3 downto 0 );
   signal seventh_digit_i_1_n_0 : STD_LOGIC;
-  signal seventh_digit_i_2_n_0 : STD_LOGIC;
   signal seventh_digit_reg_n_0 : STD_LOGIC;
   signal sixth_digit_i_1_n_0 : STD_LOGIC;
-  signal sixth_digit_i_2_n_0 : STD_LOGIC;
   signal sixth_digit_reg_n_0 : STD_LOGIC;
   signal \NLW_counter_10ms_reg[28]_i_1_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute ADDER_THRESHOLD : integer;
@@ -227,13 +223,13 @@ architecture STRUCTURE of top_level_stop_watch_0_0_stop_watch is
   attribute XILINX_LEGACY_PRIM of \digital_enable_reg[6]\ : label is "LD";
   attribute XILINX_LEGACY_PRIM of \digital_enable_reg[7]\ : label is "LD";
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of eighth_digit_i_2 : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of fourth_digit_i_2 : label is "soft_lutpair12";
   attribute SOFT_HLUTNM of \hour_hundreds[0]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \hour_hundreds[1]_i_1\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \hour_hundreds[2]_i_1\ : label is "soft_lutpair6";
   attribute SOFT_HLUTNM of \hour_hundreds[3]_i_2\ : label is "soft_lutpair6";
   attribute SOFT_HLUTNM of \hour_tens[0]_i_1\ : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \hour_tens[1]_i_1\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \hour_tens[2]_i_1\ : label is "soft_lutpair2";
   attribute SOFT_HLUTNM of \hour_tens[3]_i_2\ : label is "soft_lutpair2";
   attribute SOFT_HLUTNM of \hour_tens[3]_i_3\ : label is "soft_lutpair7";
   attribute SOFT_HLUTNM of \hour_thousands[0]_i_1\ : label is "soft_lutpair10";
@@ -242,19 +238,15 @@ architecture STRUCTURE of top_level_stop_watch_0_0_stop_watch is
   attribute SOFT_HLUTNM of \hour_thousands[3]_i_2\ : label is "soft_lutpair11";
   attribute SOFT_HLUTNM of \hour_units[0]_i_1\ : label is "soft_lutpair3";
   attribute SOFT_HLUTNM of \hour_units[1]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \hour_units[2]_i_1\ : label is "soft_lutpair13";
   attribute SOFT_HLUTNM of \hour_units[3]_i_2\ : label is "soft_lutpair7";
   attribute SOFT_HLUTNM of \min_tens[2]_i_2\ : label is "soft_lutpair8";
   attribute SOFT_HLUTNM of \min_units[0]_i_1\ : label is "soft_lutpair5";
   attribute SOFT_HLUTNM of \min_units[1]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \min_units[2]_i_1\ : label is "soft_lutpair12";
   attribute SOFT_HLUTNM of \min_units[3]_i_2\ : label is "soft_lutpair8";
   attribute SOFT_HLUTNM of \sec_tens[2]_i_2\ : label is "soft_lutpair9";
   attribute SOFT_HLUTNM of \sec_units[0]_i_1\ : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of \sec_units[1]_i_1\ : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of \sec_units[3]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of seventh_digit_i_2 : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of sixth_digit_i_2 : label is "soft_lutpair13";
 begin
   Q(3 downto 0) <= \^q\(3 downto 0);
   \hour_hundreds_reg[3]_0\(3 downto 0) <= \^hour_hundreds_reg[3]_0\(3 downto 0);
@@ -1083,95 +1075,76 @@ clk_100hz_reg: unisim.vcomponents.FDRE
       GE => '1',
       Q => digital_enable(4)
     );
-eighth_digit_i_1: unisim.vcomponents.LUT4
+eighth_digit_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FF04"
+      INIT => X"FFFFFFFF00200000"
     )
         port map (
-      I0 => newstart_stopwatch,
-      I1 => pushed,
-      I2 => eighth_digit_i_2_n_0,
-      I3 => eighth_digit_reg_n_0,
+      I0 => pushed,
+      I1 => \^hour_hundreds_reg[3]_0\(0),
+      I2 => \^hour_hundreds_reg[3]_0\(3),
+      I3 => \^hour_hundreds_reg[3]_0\(2),
+      I4 => \^hour_hundreds_reg[3]_0\(1),
+      I5 => eighth_digit_reg_n_0,
       O => eighth_digit_i_1_n_0
     );
-eighth_digit_i_2: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFDF"
-    )
-        port map (
-      I0 => \^hour_hundreds_reg[3]_0\(1),
-      I1 => \^hour_hundreds_reg[3]_0\(2),
-      I2 => \^hour_hundreds_reg[3]_0\(3),
-      I3 => \^hour_hundreds_reg[3]_0\(0),
-      O => eighth_digit_i_2_n_0
-    );
-eighth_digit_reg: unisim.vcomponents.FDRE
+eighth_digit_reg: unisim.vcomponents.FDCE
     generic map(
       INIT => '0'
     )
         port map (
       C => clk_100hz,
       CE => '1',
+      CLR => newstart_stopwatch,
       D => eighth_digit_i_1_n_0,
-      Q => eighth_digit_reg_n_0,
-      R => '0'
+      Q => eighth_digit_reg_n_0
     );
-fifth_digit_i_1: unisim.vcomponents.LUT6
+fifth_digit_i_1: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFF04000000"
+      INIT => X"FFFF2000"
     )
         port map (
-      I0 => newstart_stopwatch,
-      I1 => pushed,
-      I2 => \^min_tens_reg[0]_0\,
-      I3 => \^min_tens_reg[1]_0\,
-      I4 => \^min_tens_reg[2]_0\,
-      I5 => fifth_digit_reg_n_0,
+      I0 => pushed,
+      I1 => \^min_tens_reg[0]_0\,
+      I2 => \^min_tens_reg[1]_0\,
+      I3 => \^min_tens_reg[2]_0\,
+      I4 => fifth_digit_reg_n_0,
       O => fifth_digit_i_1_n_0
     );
-fifth_digit_reg: unisim.vcomponents.FDRE
+fifth_digit_reg: unisim.vcomponents.FDCE
     generic map(
       INIT => '0'
     )
         port map (
       C => clk_100hz,
       CE => '1',
+      CLR => newstart_stopwatch,
       D => fifth_digit_i_1_n_0,
-      Q => fifth_digit_reg_n_0,
-      R => '0'
+      Q => fifth_digit_reg_n_0
     );
-fourth_digit_i_1: unisim.vcomponents.LUT4
+fourth_digit_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FF04"
+      INIT => X"FFFFFFFF00200000"
     )
         port map (
-      I0 => newstart_stopwatch,
-      I1 => pushed,
-      I2 => fourth_digit_i_2_n_0,
-      I3 => fourth_digit_reg_n_0,
+      I0 => pushed,
+      I1 => \^min_units_reg[3]_0\(0),
+      I2 => \^min_units_reg[3]_0\(3),
+      I3 => \^min_units_reg[3]_0\(2),
+      I4 => \^min_units_reg[3]_0\(1),
+      I5 => fourth_digit_reg_n_0,
       O => fourth_digit_i_1_n_0
     );
-fourth_digit_i_2: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFDF"
-    )
-        port map (
-      I0 => \^min_units_reg[3]_0\(1),
-      I1 => \^min_units_reg[3]_0\(2),
-      I2 => \^min_units_reg[3]_0\(3),
-      I3 => \^min_units_reg[3]_0\(0),
-      O => fourth_digit_i_2_n_0
-    );
-fourth_digit_reg: unisim.vcomponents.FDRE
+fourth_digit_reg: unisim.vcomponents.FDCE
     generic map(
       INIT => '0'
     )
         port map (
       C => clk_100hz,
       CE => '1',
+      CLR => newstart_stopwatch,
       D => fourth_digit_i_1_n_0,
-      Q => fourth_digit_reg_n_0,
-      R => '0'
+      Q => fourth_digit_reg_n_0
     );
 \hour_hundreds[0]_i_1\: unisim.vcomponents.LUT5
     generic map(
@@ -1988,71 +1961,53 @@ pushed_reg: unisim.vcomponents.FDRE
       D => \sec_units[3]_i_1_n_0\,
       Q => \^sec_units_reg[3]_0\(3)
     );
-seventh_digit_i_1: unisim.vcomponents.LUT4
+seventh_digit_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FF04"
+      INIT => X"FFFFFFFF00200000"
     )
         port map (
-      I0 => newstart_stopwatch,
-      I1 => pushed,
-      I2 => seventh_digit_i_2_n_0,
-      I3 => seventh_digit_reg_n_0,
+      I0 => pushed,
+      I1 => \^hour_tens_reg[3]_0\(0),
+      I2 => \^hour_tens_reg[3]_0\(3),
+      I3 => \^hour_tens_reg[3]_0\(2),
+      I4 => \^hour_tens_reg[3]_0\(1),
+      I5 => seventh_digit_reg_n_0,
       O => seventh_digit_i_1_n_0
     );
-seventh_digit_i_2: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFDF"
-    )
-        port map (
-      I0 => \^hour_tens_reg[3]_0\(1),
-      I1 => \^hour_tens_reg[3]_0\(2),
-      I2 => \^hour_tens_reg[3]_0\(3),
-      I3 => \^hour_tens_reg[3]_0\(0),
-      O => seventh_digit_i_2_n_0
-    );
-seventh_digit_reg: unisim.vcomponents.FDRE
+seventh_digit_reg: unisim.vcomponents.FDCE
     generic map(
       INIT => '0'
     )
         port map (
       C => clk_100hz,
       CE => '1',
+      CLR => newstart_stopwatch,
       D => seventh_digit_i_1_n_0,
-      Q => seventh_digit_reg_n_0,
-      R => '0'
+      Q => seventh_digit_reg_n_0
     );
-sixth_digit_i_1: unisim.vcomponents.LUT4
+sixth_digit_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FF04"
+      INIT => X"FFFFFFFF00200000"
     )
         port map (
-      I0 => newstart_stopwatch,
-      I1 => pushed,
-      I2 => sixth_digit_i_2_n_0,
-      I3 => sixth_digit_reg_n_0,
+      I0 => pushed,
+      I1 => \^hour_units_reg[3]_0\(0),
+      I2 => \^hour_units_reg[3]_0\(3),
+      I3 => \^hour_units_reg[3]_0\(2),
+      I4 => \^hour_units_reg[3]_0\(1),
+      I5 => sixth_digit_reg_n_0,
       O => sixth_digit_i_1_n_0
     );
-sixth_digit_i_2: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFDF"
-    )
-        port map (
-      I0 => \^hour_units_reg[3]_0\(1),
-      I1 => \^hour_units_reg[3]_0\(2),
-      I2 => \^hour_units_reg[3]_0\(3),
-      I3 => \^hour_units_reg[3]_0\(0),
-      O => sixth_digit_i_2_n_0
-    );
-sixth_digit_reg: unisim.vcomponents.FDRE
+sixth_digit_reg: unisim.vcomponents.FDCE
     generic map(
       INIT => '0'
     )
         port map (
       C => clk_100hz,
       CE => '1',
+      CLR => newstart_stopwatch,
       D => sixth_digit_i_1_n_0,
-      Q => sixth_digit_reg_n_0,
-      R => '0'
+      Q => sixth_digit_reg_n_0
     );
 end STRUCTURE;
 library IEEE;
