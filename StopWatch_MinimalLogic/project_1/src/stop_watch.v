@@ -3,7 +3,8 @@ module stop_watch(
     input startstop,
     input newstart_stopwatch,
     output reg [31:0] sevenseg,
-    output reg [7:0] digital_enable
+    output reg [7:0] digital_enable,
+    output reg [7:0] dp_bitmap
 );
 reg [31:0] counter_10ms;
 reg clk_100hz;
@@ -119,14 +120,19 @@ always @(*) begin
         sevenseg[27:24] <= hour_hundreds;
         sevenseg[31:28] <= hour_thousands;
         digital_enable[2:0] = 3'b111;   // First three digits should be always on
+        dp_bitmap[2:0] = 3'b100;
         if(fourth_digit)                
             digital_enable[3] = 1;
-        if(fifth_digit)
+        if(fifth_digit) begin
             digital_enable[4] = 1;
+            dp_bitmap[4] = 1;
+        end
         if(sixth_digit)
             digital_enable[5] = 1;
-        if(seventh_digit)
+        if(seventh_digit) begin
             digital_enable[6] = 1;
+            dp_bitmap[6] = 1;    
+        end   
         if(eighth_digit)
             digital_enable[7] = 1;
            

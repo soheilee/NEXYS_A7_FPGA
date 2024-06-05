@@ -293,6 +293,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net sevenseg_driver_0_ANODE [get_bd_ports AN] [get_bd_pins sevenseg_driver_0/ANODE]
   connect_bd_net -net sevenseg_driver_0_CATHODE [get_bd_ports SEG] [get_bd_pins sevenseg_driver_0/CATHODE]
   connect_bd_net -net stop_watch_0_digital_enable [get_bd_pins sevenseg_driver_0/digit_enable] [get_bd_pins stop_watch_0/digital_enable]
+  connect_bd_net -net stop_watch_0_dp_bitmap [get_bd_pins sevenseg_driver_0/dp_bitmap] [get_bd_pins stop_watch_0/dp_bitmap]
   connect_bd_net -net stop_watch_0_sevenseg [get_bd_pins sevenseg_driver_0/display] [get_bd_pins stop_watch_0/sevenseg]
 
   # Create address segments

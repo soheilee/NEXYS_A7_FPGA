@@ -275,6 +275,11 @@
             "left": "31",
             "right": "0"
           },
+          "dp_bitmap": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
           "digit_enable": {
             "direction": "I",
             "left": "7",
@@ -333,6 +338,11 @@
             "right": "0"
           },
           "digital_enable": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "dp_bitmap": {
             "direction": "O",
             "left": "7",
             "right": "0"
@@ -408,6 +418,12 @@
         "ports": [
           "stop_watch_0/digital_enable",
           "sevenseg_driver_0/digit_enable"
+        ]
+      },
+      "stop_watch_0_dp_bitmap": {
+        "ports": [
+          "stop_watch_0/dp_bitmap",
+          "sevenseg_driver_0/dp_bitmap"
         ]
       },
       "stop_watch_0_sevenseg": {

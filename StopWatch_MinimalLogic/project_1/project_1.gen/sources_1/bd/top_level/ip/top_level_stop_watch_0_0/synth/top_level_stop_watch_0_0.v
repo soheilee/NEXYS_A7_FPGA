@@ -60,7 +60,8 @@ module top_level_stop_watch_0_0 (
   startstop,
   newstart_stopwatch,
   sevenseg,
-  digital_enable
+  digital_enable,
+  dp_bitmap
 );
 
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, INSERT_VIP 0" *)
@@ -70,12 +71,14 @@ input wire startstop;
 input wire newstart_stopwatch;
 output wire [31 : 0] sevenseg;
 output wire [7 : 0] digital_enable;
+output wire [7 : 0] dp_bitmap;
 
   stop_watch inst (
     .clk(clk),
     .startstop(startstop),
     .newstart_stopwatch(newstart_stopwatch),
     .sevenseg(sevenseg),
-    .digital_enable(digital_enable)
+    .digital_enable(digital_enable),
+    .dp_bitmap(dp_bitmap)
   );
 endmodule

@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
-// Date        : Fri May 24 15:47:29 2024
+// Date        : Wed Jun  5 09:37:11 2024
 // Host        : LUDMW030265 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/mottaghs/Documents/FPGA/FPGA_2024/StopWatch_MinimalLogic/project_1/project_1.gen/sources_1/bd/top_level/ip/top_level_sevenseg_driver_0_0/top_level_sevenseg_driver_0_0_sim_netlist.v
@@ -19,58 +19,62 @@ module top_level_sevenseg_driver_0_0
    (clk,
     resetn,
     display,
+    dp_bitmap,
     digit_enable,
     ANODE,
     CATHODE);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET resetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input resetn;
   input [31:0]display;
+  input [7:0]dp_bitmap;
   input [7:0]digit_enable;
   output [7:0]ANODE;
   output [7:0]CATHODE;
 
-  wire \<const1> ;
   wire [7:0]ANODE;
-  wire [6:0]\^CATHODE ;
+  wire [7:0]CATHODE;
   wire clk;
   wire [7:0]digit_enable;
   wire [31:0]display;
+  wire [7:0]dp_bitmap;
   wire resetn;
 
-  assign CATHODE[7] = \<const1> ;
-  assign CATHODE[6:0] = \^CATHODE [6:0];
-  VCC VCC
-       (.P(\<const1> ));
   top_level_sevenseg_driver_0_0_sevenseg_driver inst
        (.ANODE(ANODE),
-        .CATHODE(\^CATHODE ),
+        .CATHODE(CATHODE),
         .clk(clk),
         .digit_enable(digit_enable),
         .display(display),
+        .dp_bitmap(dp_bitmap),
         .resetn(resetn));
 endmodule
 
 (* ORIG_REF_NAME = "sevenseg_driver" *) 
 module top_level_sevenseg_driver_0_0_sevenseg_driver
-   (ANODE,
-    CATHODE,
+   (CATHODE,
+    ANODE,
     resetn,
     clk,
     display,
+    dp_bitmap,
     digit_enable);
+  output [7:0]CATHODE;
   output [7:0]ANODE;
-  output [6:0]CATHODE;
   input resetn;
   input clk;
   input [31:0]display;
+  input [7:0]dp_bitmap;
   input [7:0]digit_enable;
 
   wire [7:0]ANODE;
-  wire [6:0]CATHODE;
+  wire [7:0]CATHODE;
   wire \CATHODE[6]_INST_0_i_1_n_0 ;
   wire \CATHODE[6]_INST_0_i_2_n_0 ;
   wire \CATHODE[6]_INST_0_i_3_n_0 ;
   wire \CATHODE[6]_INST_0_i_4_n_0 ;
+  wire \CATHODE[7]_INST_0_i_1_n_0 ;
+  wire \CATHODE[7]_INST_0_i_2_n_0 ;
+  wire \CATHODE[7]_INST_0_i_3_n_0 ;
   wire anode;
   wire \anode[0]_i_1_n_0 ;
   wire \anode[7]_i_1_n_0 ;
@@ -86,67 +90,36 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
   wire \anode_reg_n_0_[7] ;
   wire clk;
   wire [31:0]counter;
-  wire counter0_carry__0_i_1_n_0;
-  wire counter0_carry__0_i_2_n_0;
-  wire counter0_carry__0_i_3_n_0;
-  wire counter0_carry__0_i_4_n_0;
-  wire counter0_carry__0_n_0;
-  wire counter0_carry__0_n_1;
-  wire counter0_carry__0_n_2;
-  wire counter0_carry__0_n_3;
-  wire counter0_carry__1_i_1_n_0;
-  wire counter0_carry__1_i_2_n_0;
-  wire counter0_carry__1_i_3_n_0;
-  wire counter0_carry__1_i_4_n_0;
-  wire counter0_carry__1_n_0;
-  wire counter0_carry__1_n_1;
-  wire counter0_carry__1_n_2;
-  wire counter0_carry__1_n_3;
-  wire counter0_carry__2_i_1_n_0;
-  wire counter0_carry__2_i_2_n_0;
-  wire counter0_carry__2_i_3_n_0;
-  wire counter0_carry__2_i_4_n_0;
-  wire counter0_carry__2_n_0;
-  wire counter0_carry__2_n_1;
-  wire counter0_carry__2_n_2;
-  wire counter0_carry__2_n_3;
-  wire counter0_carry__3_i_1_n_0;
-  wire counter0_carry__3_i_2_n_0;
-  wire counter0_carry__3_i_3_n_0;
-  wire counter0_carry__3_i_4_n_0;
-  wire counter0_carry__3_n_0;
-  wire counter0_carry__3_n_1;
-  wire counter0_carry__3_n_2;
-  wire counter0_carry__3_n_3;
-  wire counter0_carry__4_i_1_n_0;
-  wire counter0_carry__4_i_2_n_0;
-  wire counter0_carry__4_i_3_n_0;
-  wire counter0_carry__4_i_4_n_0;
-  wire counter0_carry__4_n_0;
-  wire counter0_carry__4_n_1;
-  wire counter0_carry__4_n_2;
-  wire counter0_carry__4_n_3;
-  wire counter0_carry__5_i_1_n_0;
-  wire counter0_carry__5_i_2_n_0;
-  wire counter0_carry__5_i_3_n_0;
-  wire counter0_carry__5_i_4_n_0;
-  wire counter0_carry__5_n_0;
-  wire counter0_carry__5_n_1;
-  wire counter0_carry__5_n_2;
-  wire counter0_carry__5_n_3;
-  wire counter0_carry__6_i_1_n_0;
-  wire counter0_carry__6_i_2_n_0;
-  wire counter0_carry__6_i_3_n_0;
-  wire counter0_carry__6_n_2;
-  wire counter0_carry__6_n_3;
-  wire counter0_carry_i_1_n_0;
-  wire counter0_carry_i_2_n_0;
-  wire counter0_carry_i_3_n_0;
-  wire counter0_carry_i_4_n_0;
-  wire counter0_carry_n_0;
-  wire counter0_carry_n_1;
-  wire counter0_carry_n_2;
-  wire counter0_carry_n_3;
+  wire \counter0_inferred__0/i__carry__0_n_0 ;
+  wire \counter0_inferred__0/i__carry__0_n_1 ;
+  wire \counter0_inferred__0/i__carry__0_n_2 ;
+  wire \counter0_inferred__0/i__carry__0_n_3 ;
+  wire \counter0_inferred__0/i__carry__1_n_0 ;
+  wire \counter0_inferred__0/i__carry__1_n_1 ;
+  wire \counter0_inferred__0/i__carry__1_n_2 ;
+  wire \counter0_inferred__0/i__carry__1_n_3 ;
+  wire \counter0_inferred__0/i__carry__2_n_0 ;
+  wire \counter0_inferred__0/i__carry__2_n_1 ;
+  wire \counter0_inferred__0/i__carry__2_n_2 ;
+  wire \counter0_inferred__0/i__carry__2_n_3 ;
+  wire \counter0_inferred__0/i__carry__3_n_0 ;
+  wire \counter0_inferred__0/i__carry__3_n_1 ;
+  wire \counter0_inferred__0/i__carry__3_n_2 ;
+  wire \counter0_inferred__0/i__carry__3_n_3 ;
+  wire \counter0_inferred__0/i__carry__4_n_0 ;
+  wire \counter0_inferred__0/i__carry__4_n_1 ;
+  wire \counter0_inferred__0/i__carry__4_n_2 ;
+  wire \counter0_inferred__0/i__carry__4_n_3 ;
+  wire \counter0_inferred__0/i__carry__5_n_0 ;
+  wire \counter0_inferred__0/i__carry__5_n_1 ;
+  wire \counter0_inferred__0/i__carry__5_n_2 ;
+  wire \counter0_inferred__0/i__carry__5_n_3 ;
+  wire \counter0_inferred__0/i__carry__6_n_2 ;
+  wire \counter0_inferred__0/i__carry__6_n_3 ;
+  wire \counter0_inferred__0/i__carry_n_0 ;
+  wire \counter0_inferred__0/i__carry_n_1 ;
+  wire \counter0_inferred__0/i__carry_n_2 ;
+  wire \counter0_inferred__0/i__carry_n_3 ;
   wire \counter[0]_i_1_n_0 ;
   wire \counter[10]_i_1_n_0 ;
   wire \counter[11]_i_1_n_0 ;
@@ -191,6 +164,38 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
   wire [31:1]data0;
   wire [7:0]digit_enable;
   wire [31:0]display;
+  wire [7:0]dp_bitmap;
+  wire i__carry__0_i_1_n_0;
+  wire i__carry__0_i_2_n_0;
+  wire i__carry__0_i_3_n_0;
+  wire i__carry__0_i_4_n_0;
+  wire i__carry__1_i_1_n_0;
+  wire i__carry__1_i_2_n_0;
+  wire i__carry__1_i_3_n_0;
+  wire i__carry__1_i_4_n_0;
+  wire i__carry__2_i_1_n_0;
+  wire i__carry__2_i_2_n_0;
+  wire i__carry__2_i_3_n_0;
+  wire i__carry__2_i_4_n_0;
+  wire i__carry__3_i_1_n_0;
+  wire i__carry__3_i_2_n_0;
+  wire i__carry__3_i_3_n_0;
+  wire i__carry__3_i_4_n_0;
+  wire i__carry__4_i_1_n_0;
+  wire i__carry__4_i_2_n_0;
+  wire i__carry__4_i_3_n_0;
+  wire i__carry__4_i_4_n_0;
+  wire i__carry__5_i_1_n_0;
+  wire i__carry__5_i_2_n_0;
+  wire i__carry__5_i_3_n_0;
+  wire i__carry__5_i_4_n_0;
+  wire i__carry__6_i_1_n_0;
+  wire i__carry__6_i_2_n_0;
+  wire i__carry__6_i_3_n_0;
+  wire i__carry_i_1_n_0;
+  wire i__carry_i_2_n_0;
+  wire i__carry_i_3_n_0;
+  wire i__carry_i_4_n_0;
   wire resetn;
   wire [31:0]shifter;
   wire \shifter[0]_i_1_n_0 ;
@@ -223,33 +228,34 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
   wire \shifter[7]_i_1_n_0 ;
   wire \shifter[8]_i_1_n_0 ;
   wire \shifter[9]_i_1_n_0 ;
-  wire [3:2]NLW_counter0_carry__6_CO_UNCONNECTED;
-  wire [3:3]NLW_counter0_carry__6_O_UNCONNECTED;
+  wire [3:2]\NLW_counter0_inferred__0/i__carry__6_CO_UNCONNECTED ;
+  wire [3:3]\NLW_counter0_inferred__0/i__carry__6_O_UNCONNECTED ;
 
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \ANODE[0]_INST_0 
        (.I0(\anode_reg_n_0_[0] ),
         .O(ANODE[0]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \ANODE[1]_INST_0 
        (.I0(\anode_reg_n_0_[1] ),
         .O(ANODE[1]));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \ANODE[2]_INST_0 
        (.I0(\anode_reg_n_0_[2] ),
         .O(ANODE[2]));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \ANODE[3]_INST_0 
        (.I0(\anode_reg_n_0_[3] ),
         .O(ANODE[3]));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \ANODE[4]_INST_0 
@@ -260,12 +266,13 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
     \ANODE[5]_INST_0 
        (.I0(\anode_reg_n_0_[5] ),
         .O(ANODE[5]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \ANODE[6]_INST_0 
        (.I0(\anode_reg_n_0_[6] ),
         .O(ANODE[6]));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \ANODE[7]_INST_0 
@@ -341,44 +348,82 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I4(shifter[0]),
         .I5(shifter[3]),
         .O(CATHODE[6]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
     .INIT(32'hFFFFF888)) 
     \CATHODE[6]_INST_0_i_1 
-       (.I0(\anode_reg_n_0_[6] ),
-        .I1(digit_enable[6]),
+       (.I0(\anode_reg_n_0_[1] ),
+        .I1(digit_enable[1]),
         .I2(\anode_reg_n_0_[5] ),
         .I3(digit_enable[5]),
         .I4(\CATHODE[6]_INST_0_i_3_n_0 ),
         .O(\CATHODE[6]_INST_0_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'h00000777)) 
     \CATHODE[6]_INST_0_i_2 
-       (.I0(\anode_reg_n_0_[0] ),
-        .I1(digit_enable[0]),
-        .I2(\anode_reg_n_0_[7] ),
-        .I3(digit_enable[7]),
+       (.I0(\anode_reg_n_0_[6] ),
+        .I1(digit_enable[6]),
+        .I2(\anode_reg_n_0_[2] ),
+        .I3(digit_enable[2]),
         .I4(\CATHODE[6]_INST_0_i_4_n_0 ),
         .O(\CATHODE[6]_INST_0_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT4 #(
     .INIT(16'hF888)) 
     \CATHODE[6]_INST_0_i_3 
        (.I0(digit_enable[3]),
         .I1(\anode_reg_n_0_[3] ),
-        .I2(digit_enable[4]),
-        .I3(\anode_reg_n_0_[4] ),
+        .I2(digit_enable[7]),
+        .I3(\anode_reg_n_0_[7] ),
         .O(\CATHODE[6]_INST_0_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT4 #(
     .INIT(16'hF888)) 
     \CATHODE[6]_INST_0_i_4 
-       (.I0(digit_enable[1]),
-        .I1(\anode_reg_n_0_[1] ),
-        .I2(digit_enable[2]),
-        .I3(\anode_reg_n_0_[2] ),
+       (.I0(digit_enable[0]),
+        .I1(\anode_reg_n_0_[0] ),
+        .I2(digit_enable[4]),
+        .I3(\anode_reg_n_0_[4] ),
         .O(\CATHODE[6]_INST_0_i_4_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000000000151515)) 
+    \CATHODE[7]_INST_0 
+       (.I0(\CATHODE[7]_INST_0_i_1_n_0 ),
+        .I1(dp_bitmap[0]),
+        .I2(\anode_reg_n_0_[0] ),
+        .I3(dp_bitmap[1]),
+        .I4(\anode_reg_n_0_[1] ),
+        .I5(\CATHODE[7]_INST_0_i_2_n_0 ),
+        .O(CATHODE[7]));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  LUT4 #(
+    .INIT(16'hF888)) 
+    \CATHODE[7]_INST_0_i_1 
+       (.I0(dp_bitmap[2]),
+        .I1(\anode_reg_n_0_[2] ),
+        .I2(dp_bitmap[3]),
+        .I3(\anode_reg_n_0_[3] ),
+        .O(\CATHODE[7]_INST_0_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'hFFFFF888)) 
+    \CATHODE[7]_INST_0_i_2 
+       (.I0(\anode_reg_n_0_[4] ),
+        .I1(dp_bitmap[4]),
+        .I2(\anode_reg_n_0_[5] ),
+        .I3(dp_bitmap[5]),
+        .I4(\CATHODE[7]_INST_0_i_3_n_0 ),
+        .O(\CATHODE[7]_INST_0_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  LUT4 #(
+    .INIT(16'hF888)) 
+    \CATHODE[7]_INST_0_i_3 
+       (.I0(dp_bitmap[7]),
+        .I1(\anode_reg_n_0_[7] ),
+        .I2(dp_bitmap[6]),
+        .I3(\anode_reg_n_0_[6] ),
+        .O(\CATHODE[7]_INST_0_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFDF00000010)) 
     \anode[0]_i_1 
@@ -415,7 +460,6 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I2(\anode_reg_n_0_[4] ),
         .I3(\anode[7]_i_4_n_0 ),
         .O(\anode[7]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \anode[7]_i_4 
@@ -473,224 +517,69 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .Q(\anode_reg_n_0_[7] ),
         .R(\anode[7]_i_1_n_0 ));
   (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 counter0_carry
+  CARRY4 \counter0_inferred__0/i__carry 
        (.CI(1'b0),
-        .CO({counter0_carry_n_0,counter0_carry_n_1,counter0_carry_n_2,counter0_carry_n_3}),
+        .CO({\counter0_inferred__0/i__carry_n_0 ,\counter0_inferred__0/i__carry_n_1 ,\counter0_inferred__0/i__carry_n_2 ,\counter0_inferred__0/i__carry_n_3 }),
         .CYINIT(counter[0]),
         .DI(counter[4:1]),
         .O(data0[4:1]),
-        .S({counter0_carry_i_1_n_0,counter0_carry_i_2_n_0,counter0_carry_i_3_n_0,counter0_carry_i_4_n_0}));
+        .S({i__carry_i_1_n_0,i__carry_i_2_n_0,i__carry_i_3_n_0,i__carry_i_4_n_0}));
   (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 counter0_carry__0
-       (.CI(counter0_carry_n_0),
-        .CO({counter0_carry__0_n_0,counter0_carry__0_n_1,counter0_carry__0_n_2,counter0_carry__0_n_3}),
+  CARRY4 \counter0_inferred__0/i__carry__0 
+       (.CI(\counter0_inferred__0/i__carry_n_0 ),
+        .CO({\counter0_inferred__0/i__carry__0_n_0 ,\counter0_inferred__0/i__carry__0_n_1 ,\counter0_inferred__0/i__carry__0_n_2 ,\counter0_inferred__0/i__carry__0_n_3 }),
         .CYINIT(1'b0),
         .DI(counter[8:5]),
         .O(data0[8:5]),
-        .S({counter0_carry__0_i_1_n_0,counter0_carry__0_i_2_n_0,counter0_carry__0_i_3_n_0,counter0_carry__0_i_4_n_0}));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__0_i_1
-       (.I0(counter[8]),
-        .O(counter0_carry__0_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__0_i_2
-       (.I0(counter[7]),
-        .O(counter0_carry__0_i_2_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__0_i_3
-       (.I0(counter[6]),
-        .O(counter0_carry__0_i_3_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__0_i_4
-       (.I0(counter[5]),
-        .O(counter0_carry__0_i_4_n_0));
+        .S({i__carry__0_i_1_n_0,i__carry__0_i_2_n_0,i__carry__0_i_3_n_0,i__carry__0_i_4_n_0}));
   (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 counter0_carry__1
-       (.CI(counter0_carry__0_n_0),
-        .CO({counter0_carry__1_n_0,counter0_carry__1_n_1,counter0_carry__1_n_2,counter0_carry__1_n_3}),
+  CARRY4 \counter0_inferred__0/i__carry__1 
+       (.CI(\counter0_inferred__0/i__carry__0_n_0 ),
+        .CO({\counter0_inferred__0/i__carry__1_n_0 ,\counter0_inferred__0/i__carry__1_n_1 ,\counter0_inferred__0/i__carry__1_n_2 ,\counter0_inferred__0/i__carry__1_n_3 }),
         .CYINIT(1'b0),
         .DI(counter[12:9]),
         .O(data0[12:9]),
-        .S({counter0_carry__1_i_1_n_0,counter0_carry__1_i_2_n_0,counter0_carry__1_i_3_n_0,counter0_carry__1_i_4_n_0}));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__1_i_1
-       (.I0(counter[12]),
-        .O(counter0_carry__1_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__1_i_2
-       (.I0(counter[11]),
-        .O(counter0_carry__1_i_2_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__1_i_3
-       (.I0(counter[10]),
-        .O(counter0_carry__1_i_3_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__1_i_4
-       (.I0(counter[9]),
-        .O(counter0_carry__1_i_4_n_0));
+        .S({i__carry__1_i_1_n_0,i__carry__1_i_2_n_0,i__carry__1_i_3_n_0,i__carry__1_i_4_n_0}));
   (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 counter0_carry__2
-       (.CI(counter0_carry__1_n_0),
-        .CO({counter0_carry__2_n_0,counter0_carry__2_n_1,counter0_carry__2_n_2,counter0_carry__2_n_3}),
+  CARRY4 \counter0_inferred__0/i__carry__2 
+       (.CI(\counter0_inferred__0/i__carry__1_n_0 ),
+        .CO({\counter0_inferred__0/i__carry__2_n_0 ,\counter0_inferred__0/i__carry__2_n_1 ,\counter0_inferred__0/i__carry__2_n_2 ,\counter0_inferred__0/i__carry__2_n_3 }),
         .CYINIT(1'b0),
         .DI(counter[16:13]),
         .O(data0[16:13]),
-        .S({counter0_carry__2_i_1_n_0,counter0_carry__2_i_2_n_0,counter0_carry__2_i_3_n_0,counter0_carry__2_i_4_n_0}));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__2_i_1
-       (.I0(counter[16]),
-        .O(counter0_carry__2_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__2_i_2
-       (.I0(counter[15]),
-        .O(counter0_carry__2_i_2_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__2_i_3
-       (.I0(counter[14]),
-        .O(counter0_carry__2_i_3_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__2_i_4
-       (.I0(counter[13]),
-        .O(counter0_carry__2_i_4_n_0));
+        .S({i__carry__2_i_1_n_0,i__carry__2_i_2_n_0,i__carry__2_i_3_n_0,i__carry__2_i_4_n_0}));
   (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 counter0_carry__3
-       (.CI(counter0_carry__2_n_0),
-        .CO({counter0_carry__3_n_0,counter0_carry__3_n_1,counter0_carry__3_n_2,counter0_carry__3_n_3}),
+  CARRY4 \counter0_inferred__0/i__carry__3 
+       (.CI(\counter0_inferred__0/i__carry__2_n_0 ),
+        .CO({\counter0_inferred__0/i__carry__3_n_0 ,\counter0_inferred__0/i__carry__3_n_1 ,\counter0_inferred__0/i__carry__3_n_2 ,\counter0_inferred__0/i__carry__3_n_3 }),
         .CYINIT(1'b0),
         .DI(counter[20:17]),
         .O(data0[20:17]),
-        .S({counter0_carry__3_i_1_n_0,counter0_carry__3_i_2_n_0,counter0_carry__3_i_3_n_0,counter0_carry__3_i_4_n_0}));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__3_i_1
-       (.I0(counter[20]),
-        .O(counter0_carry__3_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__3_i_2
-       (.I0(counter[19]),
-        .O(counter0_carry__3_i_2_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__3_i_3
-       (.I0(counter[18]),
-        .O(counter0_carry__3_i_3_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__3_i_4
-       (.I0(counter[17]),
-        .O(counter0_carry__3_i_4_n_0));
+        .S({i__carry__3_i_1_n_0,i__carry__3_i_2_n_0,i__carry__3_i_3_n_0,i__carry__3_i_4_n_0}));
   (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 counter0_carry__4
-       (.CI(counter0_carry__3_n_0),
-        .CO({counter0_carry__4_n_0,counter0_carry__4_n_1,counter0_carry__4_n_2,counter0_carry__4_n_3}),
+  CARRY4 \counter0_inferred__0/i__carry__4 
+       (.CI(\counter0_inferred__0/i__carry__3_n_0 ),
+        .CO({\counter0_inferred__0/i__carry__4_n_0 ,\counter0_inferred__0/i__carry__4_n_1 ,\counter0_inferred__0/i__carry__4_n_2 ,\counter0_inferred__0/i__carry__4_n_3 }),
         .CYINIT(1'b0),
         .DI(counter[24:21]),
         .O(data0[24:21]),
-        .S({counter0_carry__4_i_1_n_0,counter0_carry__4_i_2_n_0,counter0_carry__4_i_3_n_0,counter0_carry__4_i_4_n_0}));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__4_i_1
-       (.I0(counter[24]),
-        .O(counter0_carry__4_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__4_i_2
-       (.I0(counter[23]),
-        .O(counter0_carry__4_i_2_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__4_i_3
-       (.I0(counter[22]),
-        .O(counter0_carry__4_i_3_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__4_i_4
-       (.I0(counter[21]),
-        .O(counter0_carry__4_i_4_n_0));
+        .S({i__carry__4_i_1_n_0,i__carry__4_i_2_n_0,i__carry__4_i_3_n_0,i__carry__4_i_4_n_0}));
   (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 counter0_carry__5
-       (.CI(counter0_carry__4_n_0),
-        .CO({counter0_carry__5_n_0,counter0_carry__5_n_1,counter0_carry__5_n_2,counter0_carry__5_n_3}),
+  CARRY4 \counter0_inferred__0/i__carry__5 
+       (.CI(\counter0_inferred__0/i__carry__4_n_0 ),
+        .CO({\counter0_inferred__0/i__carry__5_n_0 ,\counter0_inferred__0/i__carry__5_n_1 ,\counter0_inferred__0/i__carry__5_n_2 ,\counter0_inferred__0/i__carry__5_n_3 }),
         .CYINIT(1'b0),
         .DI(counter[28:25]),
         .O(data0[28:25]),
-        .S({counter0_carry__5_i_1_n_0,counter0_carry__5_i_2_n_0,counter0_carry__5_i_3_n_0,counter0_carry__5_i_4_n_0}));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__5_i_1
-       (.I0(counter[28]),
-        .O(counter0_carry__5_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__5_i_2
-       (.I0(counter[27]),
-        .O(counter0_carry__5_i_2_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__5_i_3
-       (.I0(counter[26]),
-        .O(counter0_carry__5_i_3_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__5_i_4
-       (.I0(counter[25]),
-        .O(counter0_carry__5_i_4_n_0));
+        .S({i__carry__5_i_1_n_0,i__carry__5_i_2_n_0,i__carry__5_i_3_n_0,i__carry__5_i_4_n_0}));
   (* ADDER_THRESHOLD = "35" *) 
-  CARRY4 counter0_carry__6
-       (.CI(counter0_carry__5_n_0),
-        .CO({NLW_counter0_carry__6_CO_UNCONNECTED[3:2],counter0_carry__6_n_2,counter0_carry__6_n_3}),
+  CARRY4 \counter0_inferred__0/i__carry__6 
+       (.CI(\counter0_inferred__0/i__carry__5_n_0 ),
+        .CO({\NLW_counter0_inferred__0/i__carry__6_CO_UNCONNECTED [3:2],\counter0_inferred__0/i__carry__6_n_2 ,\counter0_inferred__0/i__carry__6_n_3 }),
         .CYINIT(1'b0),
         .DI({1'b0,1'b0,counter[30:29]}),
-        .O({NLW_counter0_carry__6_O_UNCONNECTED[3],data0[31:29]}),
-        .S({1'b0,counter0_carry__6_i_1_n_0,counter0_carry__6_i_2_n_0,counter0_carry__6_i_3_n_0}));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__6_i_1
-       (.I0(counter[31]),
-        .O(counter0_carry__6_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__6_i_2
-       (.I0(counter[30]),
-        .O(counter0_carry__6_i_2_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry__6_i_3
-       (.I0(counter[29]),
-        .O(counter0_carry__6_i_3_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry_i_1
-       (.I0(counter[4]),
-        .O(counter0_carry_i_1_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry_i_2
-       (.I0(counter[3]),
-        .O(counter0_carry_i_2_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry_i_3
-       (.I0(counter[2]),
-        .O(counter0_carry_i_3_n_0));
-  LUT1 #(
-    .INIT(2'h1)) 
-    counter0_carry_i_4
-       (.I0(counter[1]),
-        .O(counter0_carry_i_4_n_0));
+        .O({\NLW_counter0_inferred__0/i__carry__6_O_UNCONNECTED [3],data0[31:29]}),
+        .S({1'b0,i__carry__6_i_1_n_0,i__carry__6_i_2_n_0,i__carry__6_i_3_n_0}));
   LUT5 #(
     .INIT(32'h55555455)) 
     \counter[0]_i_1 
@@ -915,10 +804,10 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
   LUT4 #(
     .INIT(16'hFFFE)) 
     \counter[31]_i_10 
-       (.I0(counter[13]),
-        .I1(counter[12]),
-        .I2(counter[14]),
-        .I3(counter[15]),
+       (.I0(counter[14]),
+        .I1(counter[15]),
+        .I2(counter[13]),
+        .I3(counter[12]),
         .O(\counter[31]_i_10_n_0 ));
   LUT5 #(
     .INIT(32'hAAAAA8AA)) 
@@ -941,10 +830,10 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
   LUT5 #(
     .INIT(32'hFFFFFFFE)) 
     \counter[31]_i_4 
-       (.I0(counter[30]),
-        .I1(counter[31]),
+       (.I0(counter[28]),
+        .I1(counter[30]),
         .I2(counter[29]),
-        .I3(counter[28]),
+        .I3(counter[31]),
         .I4(\counter[31]_i_8_n_0 ),
         .O(\counter[31]_i_4_n_0 ));
   LUT5 #(
@@ -1244,7 +1133,162 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .D(\counter[9]_i_1_n_0 ),
         .Q(counter[9]),
         .R(\counter[31]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__0_i_1
+       (.I0(counter[8]),
+        .O(i__carry__0_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__0_i_2
+       (.I0(counter[7]),
+        .O(i__carry__0_i_2_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__0_i_3
+       (.I0(counter[6]),
+        .O(i__carry__0_i_3_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__0_i_4
+       (.I0(counter[5]),
+        .O(i__carry__0_i_4_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__1_i_1
+       (.I0(counter[12]),
+        .O(i__carry__1_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__1_i_2
+       (.I0(counter[11]),
+        .O(i__carry__1_i_2_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__1_i_3
+       (.I0(counter[10]),
+        .O(i__carry__1_i_3_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__1_i_4
+       (.I0(counter[9]),
+        .O(i__carry__1_i_4_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__2_i_1
+       (.I0(counter[16]),
+        .O(i__carry__2_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__2_i_2
+       (.I0(counter[15]),
+        .O(i__carry__2_i_2_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__2_i_3
+       (.I0(counter[14]),
+        .O(i__carry__2_i_3_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__2_i_4
+       (.I0(counter[13]),
+        .O(i__carry__2_i_4_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__3_i_1
+       (.I0(counter[20]),
+        .O(i__carry__3_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__3_i_2
+       (.I0(counter[19]),
+        .O(i__carry__3_i_2_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__3_i_3
+       (.I0(counter[18]),
+        .O(i__carry__3_i_3_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__3_i_4
+       (.I0(counter[17]),
+        .O(i__carry__3_i_4_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__4_i_1
+       (.I0(counter[24]),
+        .O(i__carry__4_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__4_i_2
+       (.I0(counter[23]),
+        .O(i__carry__4_i_2_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__4_i_3
+       (.I0(counter[22]),
+        .O(i__carry__4_i_3_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__4_i_4
+       (.I0(counter[21]),
+        .O(i__carry__4_i_4_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__5_i_1
+       (.I0(counter[28]),
+        .O(i__carry__5_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__5_i_2
+       (.I0(counter[27]),
+        .O(i__carry__5_i_2_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__5_i_3
+       (.I0(counter[26]),
+        .O(i__carry__5_i_3_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__5_i_4
+       (.I0(counter[25]),
+        .O(i__carry__5_i_4_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__6_i_1
+       (.I0(counter[31]),
+        .O(i__carry__6_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__6_i_2
+       (.I0(counter[30]),
+        .O(i__carry__6_i_2_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry__6_i_3
+       (.I0(counter[29]),
+        .O(i__carry__6_i_3_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry_i_1
+       (.I0(counter[4]),
+        .O(i__carry_i_1_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry_i_2
+       (.I0(counter[3]),
+        .O(i__carry_i_2_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry_i_3
+       (.I0(counter[2]),
+        .O(i__carry_i_3_n_0));
+  LUT1 #(
+    .INIT(2'h1)) 
+    i__carry_i_4
+       (.I0(counter[1]),
+        .O(i__carry_i_4_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[0]_i_1 
@@ -1252,7 +1296,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[0]),
         .O(\shifter[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[10]_i_1 
@@ -1260,7 +1304,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[10]),
         .O(\shifter[10]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[11]_i_1 
@@ -1268,7 +1312,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[11]),
         .O(\shifter[11]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[12]_i_1 
@@ -1276,7 +1320,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[12]),
         .O(\shifter[12]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[13]_i_1 
@@ -1284,7 +1328,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[13]),
         .O(\shifter[13]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[14]_i_1 
@@ -1292,7 +1336,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[14]),
         .O(\shifter[14]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[15]_i_1 
@@ -1300,7 +1344,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[15]),
         .O(\shifter[15]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[16]_i_1 
@@ -1308,7 +1352,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[16]),
         .O(\shifter[16]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[17]_i_1 
@@ -1316,7 +1360,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[17]),
         .O(\shifter[17]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[18]_i_1 
@@ -1324,7 +1368,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[18]),
         .O(\shifter[18]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[19]_i_1 
@@ -1332,7 +1376,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[19]),
         .O(\shifter[19]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[1]_i_1 
@@ -1340,7 +1384,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[1]),
         .O(\shifter[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[20]_i_1 
@@ -1348,7 +1392,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[20]),
         .O(\shifter[20]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[21]_i_1 
@@ -1356,7 +1400,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[21]),
         .O(\shifter[21]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[22]_i_1 
@@ -1364,7 +1408,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[22]),
         .O(\shifter[22]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[23]_i_1 
@@ -1372,7 +1416,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[23]),
         .O(\shifter[23]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[24]_i_1 
@@ -1380,7 +1424,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[24]),
         .O(\shifter[24]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[25]_i_1 
@@ -1388,7 +1432,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[25]),
         .O(\shifter[25]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[26]_i_1 
@@ -1405,7 +1449,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I3(\counter[31]_i_6_n_0 ),
         .I4(resetn),
         .O(\shifter[27]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[27]_i_2 
@@ -1413,7 +1457,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[27]),
         .O(\shifter[27]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[2]_i_1 
@@ -1431,7 +1475,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I4(\counter[31]_i_4_n_0 ),
         .I5(\counter[31]_i_3_n_0 ),
         .O(\shifter[31]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[3]_i_1 
@@ -1439,7 +1483,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[3]),
         .O(\shifter[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[4]_i_1 
@@ -1447,7 +1491,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[4]),
         .O(\shifter[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[5]_i_1 
@@ -1455,7 +1499,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[5]),
         .O(\shifter[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[6]_i_1 
@@ -1463,7 +1507,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[6]),
         .O(\shifter[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[7]_i_1 
@@ -1471,7 +1515,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[7]),
         .O(\shifter[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[8]_i_1 
@@ -1479,7 +1523,7 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .I1(\anode[7]_i_3_n_0 ),
         .I2(display[8]),
         .O(\shifter[8]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \shifter[9]_i_1 

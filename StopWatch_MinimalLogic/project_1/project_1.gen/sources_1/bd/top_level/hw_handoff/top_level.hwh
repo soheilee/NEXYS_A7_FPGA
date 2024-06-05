@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Jun  3 16:38:44 2024" VIVADOVERSION="2021.1.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Jun  5 09:54:26 2024" VIVADOVERSION="2021.1.1">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a100t" NAME="top_level" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -116,6 +116,11 @@
         <PORT DIR="I" LEFT="31" NAME="display" RIGHT="0" SIGIS="undef" SIGNAME="stop_watch_0_sevenseg">
           <CONNECTIONS>
             <CONNECTION INSTANCE="stop_watch_0" PORT="sevenseg"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="7" NAME="dp_bitmap" RIGHT="0" SIGIS="undef" SIGNAME="stop_watch_0_dp_bitmap">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="stop_watch_0" PORT="dp_bitmap"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="I" LEFT="7" NAME="digit_enable" RIGHT="0" SIGIS="undef" SIGNAME="stop_watch_0_digital_enable">
@@ -808,6 +813,11 @@
         <PORT DIR="O" LEFT="7" NAME="digital_enable" RIGHT="0" SIGIS="undef" SIGNAME="stop_watch_0_digital_enable">
           <CONNECTIONS>
             <CONNECTION INSTANCE="sevenseg_driver_0" PORT="digit_enable"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="7" NAME="dp_bitmap" RIGHT="0" SIGIS="undef" SIGNAME="stop_watch_0_dp_bitmap">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="sevenseg_driver_0" PORT="dp_bitmap"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>

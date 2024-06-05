@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
--- Date        : Mon Jun  3 16:39:26 2024
+-- Date        : Wed Jun  5 09:55:14 2024
 -- Host        : LUDMW030265 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/mottaghs/Documents/FPGA/FPGA_2024/StopWatch_MinimalLogic/project_1/project_1.gen/sources_1/bd/top_level/ip/top_level_stop_watch_0_0/top_level_stop_watch_0_0_sim_netlist.vhdl
@@ -2020,7 +2020,8 @@ entity top_level_stop_watch_0_0 is
     startstop : in STD_LOGIC;
     newstart_stopwatch : in STD_LOGIC;
     sevenseg : out STD_LOGIC_VECTOR ( 31 downto 0 );
-    digital_enable : out STD_LOGIC_VECTOR ( 7 downto 0 )
+    digital_enable : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    dp_bitmap : out STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   attribute NotValidForBitStream : boolean;
   attribute NotValidForBitStream of top_level_stop_watch_0_0 : entity is true;
@@ -2038,16 +2039,29 @@ architecture STRUCTURE of top_level_stop_watch_0_0 is
   signal \<const0>\ : STD_LOGIC;
   signal \<const1>\ : STD_LOGIC;
   signal \^digital_enable\ : STD_LOGIC_VECTOR ( 7 downto 3 );
+  signal \^dp_bitmap\ : STD_LOGIC_VECTOR ( 6 downto 4 );
   signal \^sevenseg\ : STD_LOGIC_VECTOR ( 31 downto 0 );
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clk : signal is "xilinx.com:signal:clock:1.0 clk CLK";
   attribute X_INTERFACE_PARAMETER : string;
   attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, INSERT_VIP 0";
 begin
-  digital_enable(7 downto 3) <= \^digital_enable\(7 downto 3);
+  digital_enable(7) <= \^digital_enable\(7);
+  digital_enable(6) <= \^dp_bitmap\(6);
+  digital_enable(5) <= \^digital_enable\(5);
+  digital_enable(4) <= \^dp_bitmap\(4);
+  digital_enable(3) <= \^digital_enable\(3);
   digital_enable(2) <= \<const1>\;
   digital_enable(1) <= \<const1>\;
   digital_enable(0) <= \<const1>\;
+  dp_bitmap(7) <= \<const0>\;
+  dp_bitmap(6) <= \^dp_bitmap\(6);
+  dp_bitmap(5) <= \<const0>\;
+  dp_bitmap(4) <= \^dp_bitmap\(4);
+  dp_bitmap(3) <= \<const0>\;
+  dp_bitmap(2) <= \<const1>\;
+  dp_bitmap(1) <= \<const0>\;
+  dp_bitmap(0) <= \<const0>\;
   sevenseg(31 downto 16) <= \^sevenseg\(31 downto 16);
   sevenseg(15) <= \<const0>\;
   sevenseg(14 downto 8) <= \^sevenseg\(14 downto 8);
@@ -2065,7 +2079,11 @@ inst: entity work.top_level_stop_watch_0_0_stop_watch
      port map (
       Q(3 downto 0) => \^sevenseg\(31 downto 28),
       clk => clk,
-      digital_enable(4 downto 0) => \^digital_enable\(7 downto 3),
+      digital_enable(4) => \^digital_enable\(7),
+      digital_enable(3) => \^dp_bitmap\(6),
+      digital_enable(2) => \^digital_enable\(5),
+      digital_enable(1) => \^dp_bitmap\(4),
+      digital_enable(0) => \^digital_enable\(3),
       \hour_hundreds_reg[3]_0\(3 downto 0) => \^sevenseg\(27 downto 24),
       \hour_tens_reg[3]_0\(3 downto 0) => \^sevenseg\(23 downto 20),
       \hour_units_reg[3]_0\(3 downto 0) => \^sevenseg\(19 downto 16),

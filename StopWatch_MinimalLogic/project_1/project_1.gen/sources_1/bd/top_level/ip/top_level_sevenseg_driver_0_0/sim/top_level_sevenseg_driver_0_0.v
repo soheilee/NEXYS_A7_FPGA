@@ -58,6 +58,7 @@ module top_level_sevenseg_driver_0_0 (
   clk,
   resetn,
   display,
+  dp_bitmap,
   digit_enable,
   ANODE,
   CATHODE
@@ -70,6 +71,7 @@ input wire clk;
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
 input wire resetn;
 input wire [31 : 0] display;
+input wire [7 : 0] dp_bitmap;
 input wire [7 : 0] digit_enable;
 output wire [7 : 0] ANODE;
 output wire [7 : 0] CATHODE;
@@ -80,6 +82,7 @@ output wire [7 : 0] CATHODE;
     .clk(clk),
     .resetn(resetn),
     .display(display),
+    .dp_bitmap(dp_bitmap),
     .digit_enable(digit_enable),
     .ANODE(ANODE),
     .CATHODE(CATHODE)

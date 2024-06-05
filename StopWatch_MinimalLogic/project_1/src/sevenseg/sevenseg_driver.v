@@ -14,6 +14,9 @@ module sevenseg_driver # (parameter CLOCK_FREQ = 100000000)
     // The value to display, 4 bits per digit
     input[31:0] display,
     
+    // Digit enable decimal point
+    input[7:0] dp_bitmap,
+    
     // Digit enable
     input[7:0] digit_enable, 
     
@@ -102,6 +105,10 @@ always @* begin
         4'hE  : CATHODE = ~(8'b0111_1001);
         4'hF  : CATHODE = ~(8'b0111_0001);
     endcase
+    
+    if(dp_bitmap & anode) begin
+        CATHODE[7] <= 0;
+    end
 end
 //=============================================================================
 

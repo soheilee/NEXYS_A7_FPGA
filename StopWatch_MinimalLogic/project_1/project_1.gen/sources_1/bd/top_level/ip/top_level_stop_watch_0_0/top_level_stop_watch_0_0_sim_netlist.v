@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
-// Date        : Mon Jun  3 16:39:26 2024
+// Date        : Wed Jun  5 09:55:14 2024
 // Host        : LUDMW030265 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/mottaghs/Documents/FPGA/FPGA_2024/StopWatch_MinimalLogic/project_1/project_1.gen/sources_1/bd/top_level/ip/top_level_stop_watch_0_0/top_level_stop_watch_0_0_sim_netlist.v
@@ -20,25 +20,40 @@ module top_level_stop_watch_0_0
     startstop,
     newstart_stopwatch,
     sevenseg,
-    digital_enable);
+    digital_enable,
+    dp_bitmap);
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk;
   input startstop;
   input newstart_stopwatch;
   output [31:0]sevenseg;
   output [7:0]digital_enable;
+  output [7:0]dp_bitmap;
 
   wire \<const0> ;
   wire \<const1> ;
   wire clk;
   wire [7:3]\^digital_enable ;
+  wire [6:4]\^dp_bitmap ;
   wire newstart_stopwatch;
   wire [31:0]\^sevenseg ;
   wire startstop;
 
-  assign digital_enable[7:3] = \^digital_enable [7:3];
+  assign digital_enable[7] = \^digital_enable [7];
+  assign digital_enable[6] = \^dp_bitmap [6];
+  assign digital_enable[5] = \^digital_enable [5];
+  assign digital_enable[4] = \^dp_bitmap [4];
+  assign digital_enable[3] = \^digital_enable [3];
   assign digital_enable[2] = \<const1> ;
   assign digital_enable[1] = \<const1> ;
   assign digital_enable[0] = \<const1> ;
+  assign dp_bitmap[7] = \<const0> ;
+  assign dp_bitmap[6] = \^dp_bitmap [6];
+  assign dp_bitmap[5] = \<const0> ;
+  assign dp_bitmap[4] = \^dp_bitmap [4];
+  assign dp_bitmap[3] = \<const0> ;
+  assign dp_bitmap[2] = \<const1> ;
+  assign dp_bitmap[1] = \<const0> ;
+  assign dp_bitmap[0] = \<const0> ;
   assign sevenseg[31:16] = \^sevenseg [31:16];
   assign sevenseg[15] = \<const0> ;
   assign sevenseg[14:8] = \^sevenseg [14:8];
@@ -51,7 +66,7 @@ module top_level_stop_watch_0_0
   top_level_stop_watch_0_0_stop_watch inst
        (.Q(\^sevenseg [31:28]),
         .clk(clk),
-        .digital_enable(\^digital_enable ),
+        .digital_enable({\^digital_enable [7],\^dp_bitmap [6],\^digital_enable [5],\^dp_bitmap [4],\^digital_enable [3]}),
         .\hour_hundreds_reg[3]_0 (\^sevenseg [27:24]),
         .\hour_tens_reg[3]_0 (\^sevenseg [23:20]),
         .\hour_units_reg[3]_0 (\^sevenseg [19:16]),

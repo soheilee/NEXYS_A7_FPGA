@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
-//Date        : Mon Jun  3 16:38:43 2024
+//Date        : Wed Jun  5 09:54:26 2024
 //Host        : LUDMW030265 running 64-bit major release  (build 9200)
 //Command     : generate_target top_level.bd
 //Design      : top_level
@@ -66,6 +66,7 @@ module top_level
   wire [7:0]sevenseg_driver_0_ANODE;
   wire [7:0]sevenseg_driver_0_CATHODE;
   wire [7:0]stop_watch_0_digital_enable;
+  wire [7:0]stop_watch_0_dp_bitmap;
   wire [31:0]stop_watch_0_sevenseg;
 
   assign AN[7:0] = sevenseg_driver_0_ANODE;
@@ -88,6 +89,7 @@ module top_level
         .clk(clk_wiz_0_clk_100mhz),
         .digit_enable(stop_watch_0_digital_enable),
         .display(stop_watch_0_sevenseg),
+        .dp_bitmap(stop_watch_0_dp_bitmap),
         .resetn(proc_sys_reset_0_peripheral_aresetn));
   source_100mhz_imp_MSWE0P source_100mhz
        (.CLK100MHZ(clk_in1_0_1),
@@ -97,6 +99,7 @@ module top_level
   top_level_stop_watch_0_0 stop_watch_0
        (.clk(clk_wiz_0_clk_100mhz),
         .digital_enable(stop_watch_0_digital_enable),
+        .dp_bitmap(stop_watch_0_dp_bitmap),
         .newstart_stopwatch(button_1_Q),
         .sevenseg(stop_watch_0_sevenseg),
         .startstop(button_0_Q));
