@@ -2,13 +2,13 @@ module axi_stream_master (
     input clk, resentn,
     input tready,
     input [3:0] packet_size,
-    output reg [31:0] tdata,
+    output reg [255:0] tdata,
     output reg tvalid,
     output reg tlast
 );
 
 reg [3:0] packet_counter = 3;
-reg [31:0] buffer = 256'hFFFF_FFFF;
+reg [255:0] buffer = 256'hFFFF_FFFF;
 
 
 

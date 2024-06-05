@@ -1,13 +1,13 @@
 module packet_counter (
     input clk, resentn, start,
-    input [31:0] tdata,
+    input [255:0] tdata,
     input tvalid,
     input tlast,
     output reg tready,
     output reg [31:0] sevenseg,
     output reg [7:0] digital_enable
 );
-reg [31:0] buffer [0:4095];
+reg [255:0] buffer [0:4095];
 reg [7:0] counter=0;
 reg pushed = 0;
 
