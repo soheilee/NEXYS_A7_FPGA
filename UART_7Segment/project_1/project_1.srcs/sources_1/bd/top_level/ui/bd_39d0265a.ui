@@ -1,0 +1,50 @@
+{
+   "ActiveEmotionalView":"No Loops",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-205,-439",
+   "DisplayTieOff":"1",
+   "ExpandedHierarchyInLayout":"",
+   "No Loops_ExpandedHierarchyInLayout":"",
+   "No Loops_Layout":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port UART -pg 1 -lvl 5 -x 1550 -y 60 -defaultsOSRD
+preplace port port-id_CPU_RESETN -pg 1 -lvl 0 -x -20 -y 120 -defaultsOSRD
+preplace port port-id_CLK100MHZ -pg 1 -lvl 0 -x -20 -y 100 -defaultsOSRD
+preplace portBus AN -pg 1 -lvl 5 -x 1550 -y 360 -defaultsOSRD
+preplace portBus SEG -pg 1 -lvl 5 -x 1550 -y 380 -defaultsOSRD
+preplace inst smartconnect_0 -pg 1 -lvl 3 -x 990 -y 60 -defaultsOSRD -pinDir S00_AXI left -pinY S00_AXI 40L -pinDir M00_AXI right -pinY M00_AXI 0R -pinDir M01_AXI right -pinY M01_AXI 140R -pinDir aclk left -pinY aclk 120L -pinDir aresetn left -pinY aresetn 140L
+preplace inst uart_master_0 -pg 1 -lvl 2 -x 700 -y 100 -defaultsOSRD -pinDir M_AXI right -pinY M_AXI 0R -pinDir clk left -pinY clk 0L -pinDir resetn left -pinY resetn 20L
+preplace inst axi_uartlite_0 -pg 1 -lvl 4 -x 1360 -y 40 -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 0L -pinDir UART right -pinY UART 0R -pinDir s_axi_aclk left -pinY s_axi_aclk 20L -pinDir s_axi_aresetn left -pinY s_axi_aresetn 40L -pinDir interrupt right -pinY interrupt 20R
+preplace inst source_100mhz -pg 1 -lvl 1 -x 390 -y 100 -swap {0 3 2 1} -defaultsOSRD -pinDir clk_100mhz right -pinY clk_100mhz 0R -pinDir CPU_RESETN left -pinY CPU_RESETN 20L -pinBusDir peripheral_aresetn right -pinBusY peripheral_aresetn 20R -pinDir CLK100MHZ left -pinY CLK100MHZ 0L
+preplace inst sevenseg_driver_0 -pg 1 -lvl 4 -x 1360 -y 340 -swap {0 1 3 2 4 5 6} -defaultsOSRD -pinDir clk left -pinY clk 0L -pinDir resetn left -pinY resetn 20L -pinBusDir display left -pinBusY display 60L -pinBusDir dp_bitmap left -pinBusY dp_bitmap 40L -pinBusDir digit_enable left -pinBusY digit_enable 80L -pinBusDir ANODE right -pinBusY ANODE 0R -pinBusDir CATHODE right -pinBusY CATHODE 20R
+preplace inst xlconstant_0 -pg 1 -lvl 3 -x 990 -y 500 -defaultsOSRD -pinBusDir dout right -pinBusY dout 0R
+preplace inst xlconstant_1 -pg 1 -lvl 3 -x 990 -y 380 -defaultsOSRD -pinBusDir dout right -pinBusY dout 0R
+preplace inst system_ila_0 -pg 1 -lvl 2 -x 700 -y 440 -defaultsOSRD -pinDir SLOT_0_AXI left -pinY SLOT_0_AXI 0L -pinDir clk left -pinY clk 20L -pinDir resetn left -pinY resetn 40L -pinBusDir probe0 right -pinBusY probe0 0R
+preplace inst axi_led_slave_0 -pg 1 -lvl 4 -x 1360 -y 180 -defaultsOSRD -pinDir S_AXI left -pinY S_AXI 0L -pinDir clk left -pinY clk 20L -pinDir resetn left -pinY resetn 40L -pinBusDir leds left -pinBusY leds 60L
+preplace netloc clk_in1_0_1 1 0 1 NJ 100
+preplace netloc clk_wiz_0_clk_100mhz 1 1 3 560 180 850 260 1150
+preplace netloc ext_reset_in_0_1 1 0 1 NJ 120
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 1 3 540 200 830 280 1170
+preplace netloc xlconstant_0_dout 1 3 1 1210J 420n
+preplace netloc sevenseg_driver_0_ANODE 1 4 1 1530J 340n
+preplace netloc sevenseg_driver_0_CATHODE 1 4 1 1510J 360n
+preplace netloc axi_led_slave_0_leds 1 2 2 NJ 440 1190
+preplace netloc xlconstant_1_dout 1 3 1 NJ 380
+preplace netloc uart_master_0_M_AXI 1 2 1 N 100
+preplace netloc smartconnect_0_M00_AXI 1 3 1 1130 40n
+preplace netloc axi_uartlite_0_UART 1 4 1 1530J 40n
+preplace netloc smartconnect_0_M01_AXI 1 3 1 1130 180n
+levelinfo -pg 1 -20 390 700 990 1360 1550
+pagesize -pg 1 -db -bbox -sgen -170 -60 1660 560
+",
+   "No Loops_ScaleFactor":"0.732094",
+   "No Loops_TopLeft":"206,-70",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 390 -y -130 -defaultsOSRD
+preplace inst proc_sys_reset_0 -pg 1 -lvl 2 -x 710 -y -240 -defaultsOSRD
+levelinfo -pg 1 -80 390 710 890
+pagesize -pg 1 -db -bbox -sgen -80 -340 890 140
+"
+}
+0
