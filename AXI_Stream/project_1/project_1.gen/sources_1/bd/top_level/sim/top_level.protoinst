@@ -1,0 +1,31 @@
+{
+	"version": "1.0",
+	"modules": {
+		"top_level": {
+			"proto_instances": {
+				"/axi_stream_master_0/axisout": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk"},
+						"TDATA": { "actual": "axisout_tdata"},
+						"TKEEP": { "actual": "axisout_tkeep"},
+						"TLAST": { "actual": "axisout_tlast"},
+						"TREADY": { "actual": "axisout_tready"},
+						"TVALID": { "actual": "axisout_tvalid"}
+					}
+				},
+				"/packet_counter_0/axisin": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk"},
+						"TDATA": { "actual": "axisin_tdata"},
+						"TKEEP": { "actual": "axisin_tkeep"},
+						"TLAST": { "actual": "axisin_tlast"},
+						"TREADY": { "actual": "axisin_tready"},
+						"TVALID": { "actual": "axisin_tvalid"}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,10 +1,10 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
--- Date        : Wed Jun  5 14:02:21 2024
+-- Date        : Wed Jun  5 14:02:20 2024
 -- Host        : LUDMW030265 running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               c:/Users/mottaghs/Documents/FPGA/FPGA_2024/AXI_Stream/project_1/project_1.gen/sources_1/bd/top_level/ip/top_level_clk_wiz_0_0/top_level_clk_wiz_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top top_level_clk_wiz_0_0 -prefix
+--               top_level_clk_wiz_0_0_ top_level_clk_wiz_0_0_sim_netlist.vhdl
 -- Design      : top_level_clk_wiz_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -14,14 +14,14 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
-entity top_level_clk_wiz_0_0_clk_wiz is
+entity top_level_clk_wiz_0_0_top_level_clk_wiz_0_0_clk_wiz is
   port (
     clk_100mhz : out STD_LOGIC;
     clk_in1 : in STD_LOGIC
   );
-end top_level_clk_wiz_0_0_clk_wiz;
+end top_level_clk_wiz_0_0_top_level_clk_wiz_0_0_clk_wiz;
 
-architecture STRUCTURE of top_level_clk_wiz_0_0_clk_wiz is
+architecture STRUCTURE of top_level_clk_wiz_0_0_top_level_clk_wiz_0_0_clk_wiz is
   signal clk_100mhz_top_level_clk_wiz_0_0 : STD_LOGIC;
   signal clk_in1_top_level_clk_wiz_0_0 : STD_LOGIC;
   signal clkfbout_buf_top_level_clk_wiz_0_0 : STD_LOGIC;
@@ -175,7 +175,7 @@ end top_level_clk_wiz_0_0;
 
 architecture STRUCTURE of top_level_clk_wiz_0_0 is
 begin
-inst: entity work.top_level_clk_wiz_0_0_clk_wiz
+inst: entity work.top_level_clk_wiz_0_0_top_level_clk_wiz_0_0_clk_wiz
      port map (
       clk_100mhz => clk_100mhz,
       clk_in1 => clk_in1

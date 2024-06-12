@@ -1,10 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
-// Date        : Wed Jun  5 14:02:22 2024
+// Date        : Wed Jun  5 14:02:21 2024
 // Host        : LUDMW030265 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               c:/Users/mottaghs/Documents/FPGA/FPGA_2024/AXI_Stream/project_1/project_1.gen/sources_1/bd/top_level/ip/top_level_sevenseg_driver_0_0/top_level_sevenseg_driver_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top top_level_sevenseg_driver_0_0 -prefix
+//               top_level_sevenseg_driver_0_0_ top_level_sevenseg_driver_0_0_sim_netlist.v
 // Design      : top_level_sevenseg_driver_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -12,44 +12,6 @@
 // --------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CHECK_LICENSE_TYPE = "top_level_sevenseg_driver_0_0,sevenseg_driver,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
-(* X_CORE_INFO = "sevenseg_driver,Vivado 2021.1.1" *) 
-(* NotValidForBitStream *)
-module top_level_sevenseg_driver_0_0
-   (clk,
-    resetn,
-    display,
-    dp_bitmap,
-    digit_enable,
-    ANODE,
-    CATHODE);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET resetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input resetn;
-  input [31:0]display;
-  input [7:0]dp_bitmap;
-  input [7:0]digit_enable;
-  output [7:0]ANODE;
-  output [7:0]CATHODE;
-
-  wire [7:0]ANODE;
-  wire [7:0]CATHODE;
-  wire clk;
-  wire [7:0]digit_enable;
-  wire [31:0]display;
-  wire [7:0]dp_bitmap;
-  wire resetn;
-
-  top_level_sevenseg_driver_0_0_sevenseg_driver inst
-       (.ANODE(ANODE),
-        .CATHODE(CATHODE),
-        .clk(clk),
-        .digit_enable(digit_enable),
-        .display(display),
-        .dp_bitmap(dp_bitmap),
-        .resetn(resetn));
-endmodule
-
-(* ORIG_REF_NAME = "sevenseg_driver" *) 
 module top_level_sevenseg_driver_0_0_sevenseg_driver
    (CATHODE,
     ANODE,
@@ -1723,6 +1685,43 @@ module top_level_sevenseg_driver_0_0_sevenseg_driver
         .D(\shifter[9]_i_1_n_0 ),
         .Q(shifter[9]),
         .R(1'b0));
+endmodule
+
+(* CHECK_LICENSE_TYPE = "top_level_sevenseg_driver_0_0,sevenseg_driver,{}" *) (* DowngradeIPIdentifiedWarnings = "yes" *) (* IP_DEFINITION_SOURCE = "module_ref" *) 
+(* X_CORE_INFO = "sevenseg_driver,Vivado 2021.1.1" *) 
+(* NotValidForBitStream *)
+module top_level_sevenseg_driver_0_0
+   (clk,
+    resetn,
+    display,
+    dp_bitmap,
+    digit_enable,
+    ANODE,
+    CATHODE);
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET resetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input resetn;
+  input [31:0]display;
+  input [7:0]dp_bitmap;
+  input [7:0]digit_enable;
+  output [7:0]ANODE;
+  output [7:0]CATHODE;
+
+  wire [7:0]ANODE;
+  wire [7:0]CATHODE;
+  wire clk;
+  wire [7:0]digit_enable;
+  wire [31:0]display;
+  wire [7:0]dp_bitmap;
+  wire resetn;
+
+  top_level_sevenseg_driver_0_0_sevenseg_driver inst
+       (.ANODE(ANODE),
+        .CATHODE(CATHODE),
+        .clk(clk),
+        .digit_enable(digit_enable),
+        .display(display),
+        .dp_bitmap(dp_bitmap),
+        .resetn(resetn));
 endmodule
 `ifndef GLBL
 `define GLBL
