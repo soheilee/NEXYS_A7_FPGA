@@ -46,8 +46,9 @@ always @(posedge clk) begin
             byte_counter <= cycle_counter*32;
     end
        else if(axisin_tready & axisin_tvalid & axisin_tlast) begin 
-            byte_counter <= byte_counter + count_keep;
+            //byte_counter <= byte_counter + count_keep;
             cycle_counter <= 0;
+            byte_counter <= 0;
             packet_counter <= packet_counter + 1;
         end
     endcase
@@ -55,7 +56,7 @@ end
 
 assign cyclecounter_output = cycle_counter;
 assign packetcounter_output = packet_counter;
-assign sevenseg = byte_counter;
+assign sevenseg = (count_keep==32'hFFFFFFFF) ? (byte_counter) : (byte_counter+ count_keep);
 assign digital_enable = -1;
 assign count_keep = axisin_tkeep[0] + axisin_tkeep[1] + axisin_tkeep[2] + axisin_tkeep[3] + axisin_tkeep[4] + axisin_tkeep[5] + 
                        axisin_tkeep[6] + axisin_tkeep[7] + axisin_tkeep[8] + axisin_tkeep[9] + axisin_tkeep[10] + axisin_tkeep[11] + 

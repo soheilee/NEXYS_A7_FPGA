@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Jun 12 16:49:01 2024" VIVADOVERSION="2021.1.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Jun 13 11:50:43 2024" VIVADOVERSION="2021.1.1">
 
   <SYSTEMINFO ARCH="artix7" DEVICE="7a100t" NAME="top_level" PACKAGE="csg324" SPEEDGRADE="-1"/>
 
@@ -4779,21 +4779,11 @@
             <CONNECTION INSTANCE="source_100mhz_clk_wiz_0" PORT="clk_100mhz"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="source_100mhz_proc_sys_reset_0_peripheral_aresetn">
-          <CONNECTIONS>
-            <CONNECTION INSTANCE="source_100mhz_proc_sys_reset_0" PORT="peripheral_aresetn"/>
-          </CONNECTIONS>
-        </PORT>
         <PORT DIR="I" LEFT="31" NAME="probe0" RIGHT="0" SIGIS="undef" SIGNAME="packet_counter_0_count_keep">
           <CONNECTIONS>
             <CONNECTION INSTANCE="packet_counter_0" PORT="count_keep"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="255" NAME="SLOT_0_AXIS_tdata" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="I" LEFT="31" NAME="SLOT_0_AXIS_tkeep" RIGHT="0" SIGIS="undef"/>
-        <PORT DIR="I" NAME="SLOT_0_AXIS_tlast" SIGIS="undef"/>
-        <PORT DIR="I" NAME="SLOT_0_AXIS_tvalid" SIGIS="undef"/>
-        <PORT DIR="I" NAME="SLOT_0_AXIS_tready" SIGIS="undef"/>
         <PORT DIR="I" LEFT="7" NAME="probe1" RIGHT="0" SIGIS="undef" SIGNAME="packet_counter_0_cyclecounter_output">
           <CONNECTIONS>
             <CONNECTION INSTANCE="packet_counter_0" PORT="cyclecounter_output"/>
@@ -4812,6 +4802,16 @@
         <PORT DIR="I" LEFT="31" NAME="probe4" RIGHT="0" SIGIS="undef" SIGNAME="packet_counter_0_sevenseg">
           <CONNECTIONS>
             <CONNECTION INSTANCE="packet_counter_0" PORT="sevenseg"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="255" NAME="SLOT_0_AXIS_tdata" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="31" NAME="SLOT_0_AXIS_tkeep" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" NAME="SLOT_0_AXIS_tlast" SIGIS="undef"/>
+        <PORT DIR="I" NAME="SLOT_0_AXIS_tvalid" SIGIS="undef"/>
+        <PORT DIR="I" NAME="SLOT_0_AXIS_tready" SIGIS="undef"/>
+        <PORT DIR="I" NAME="resetn" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="source_100mhz_proc_sys_reset_0_peripheral_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="source_100mhz_proc_sys_reset_0" PORT="peripheral_aresetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
