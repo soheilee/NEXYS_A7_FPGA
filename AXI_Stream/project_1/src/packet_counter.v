@@ -46,7 +46,6 @@ always @(posedge clk) begin
             byte_counter <= cycle_counter*32;
     end
        else if(axisin_tready & axisin_tvalid & axisin_tlast) begin 
-            //byte_counter <= byte_counter + count_keep;
             cycle_counter <= 0;
             byte_counter <= 0;
             packet_counter <= packet_counter + 1;
