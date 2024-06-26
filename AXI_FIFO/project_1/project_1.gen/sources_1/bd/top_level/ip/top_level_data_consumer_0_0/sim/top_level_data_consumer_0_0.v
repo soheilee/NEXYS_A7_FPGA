@@ -61,11 +61,16 @@ module top_level_data_consumer_0_0 (
   AXIS_RX_TLAST,
   AXIS_RX_TVALID,
   AXIS_RX_TREADY,
+  AXIS_RX2_TDATA,
+  AXIS_RX2_TKEEP,
+  AXIS_RX2_TLAST,
+  AXIS_RX2_TVALID,
+  AXIS_RX2_TREADY,
   packet_count,
   packet_size
 );
 
-(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF AXIS_RX, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, INSERT_VIP 0" *)
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF AXIS_RX:AXIS_RX2, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
 input wire clk;
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX TDATA" *)
@@ -79,6 +84,17 @@ input wire AXIS_RX_TVALID;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME AXIS_RX, TDATA_NUM_BYTES 64, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX TREADY" *)
 output wire AXIS_RX_TREADY;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX2 TDATA" *)
+input wire [511 : 0] AXIS_RX2_TDATA;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX2 TKEEP" *)
+input wire [63 : 0] AXIS_RX2_TKEEP;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX2 TLAST" *)
+input wire AXIS_RX2_TLAST;
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX2 TVALID" *)
+input wire AXIS_RX2_TVALID;
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME AXIS_RX2, TDATA_NUM_BYTES 64, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *)
+(* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX2 TREADY" *)
+output wire AXIS_RX2_TREADY;
 input wire [15 : 0] packet_count;
 input wire [15 : 0] packet_size;
 
@@ -91,6 +107,11 @@ input wire [15 : 0] packet_size;
     .AXIS_RX_TLAST(AXIS_RX_TLAST),
     .AXIS_RX_TVALID(AXIS_RX_TVALID),
     .AXIS_RX_TREADY(AXIS_RX_TREADY),
+    .AXIS_RX2_TDATA(AXIS_RX2_TDATA),
+    .AXIS_RX2_TKEEP(AXIS_RX2_TKEEP),
+    .AXIS_RX2_TLAST(AXIS_RX2_TLAST),
+    .AXIS_RX2_TVALID(AXIS_RX2_TVALID),
+    .AXIS_RX2_TREADY(AXIS_RX2_TREADY),
     .packet_count(packet_count),
     .packet_size(packet_size)
   );

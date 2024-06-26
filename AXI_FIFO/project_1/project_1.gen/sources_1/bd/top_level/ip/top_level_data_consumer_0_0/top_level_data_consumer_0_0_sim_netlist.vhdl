@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
--- Date        : Wed Jun 26 12:08:06 2024
+-- Date        : Wed Jun 26 14:57:18 2024
 -- Host        : LUDMW030265 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/mottaghs/Documents/GitHub/NEXYS_A7_FPGA/AXI_FIFO/project_1/project_1.gen/sources_1/bd/top_level/ip/top_level_data_consumer_0_0/top_level_data_consumer_0_0_sim_netlist.vhdl
@@ -22,6 +22,11 @@ entity top_level_data_consumer_0_0 is
     AXIS_RX_TLAST : in STD_LOGIC;
     AXIS_RX_TVALID : in STD_LOGIC;
     AXIS_RX_TREADY : out STD_LOGIC;
+    AXIS_RX2_TDATA : in STD_LOGIC_VECTOR ( 511 downto 0 );
+    AXIS_RX2_TKEEP : in STD_LOGIC_VECTOR ( 63 downto 0 );
+    AXIS_RX2_TLAST : in STD_LOGIC;
+    AXIS_RX2_TVALID : in STD_LOGIC;
+    AXIS_RX2_TREADY : out STD_LOGIC;
     packet_count : in STD_LOGIC_VECTOR ( 15 downto 0 );
     packet_size : in STD_LOGIC_VECTOR ( 15 downto 0 )
   );
@@ -40,16 +45,23 @@ end top_level_data_consumer_0_0;
 architecture STRUCTURE of top_level_data_consumer_0_0 is
   signal \<const1>\ : STD_LOGIC;
   attribute X_INTERFACE_INFO : string;
+  attribute X_INTERFACE_INFO of AXIS_RX2_TLAST : signal is "xilinx.com:interface:axis:1.0 AXIS_RX2 TLAST";
+  attribute X_INTERFACE_INFO of AXIS_RX2_TREADY : signal is "xilinx.com:interface:axis:1.0 AXIS_RX2 TREADY";
+  attribute X_INTERFACE_PARAMETER : string;
+  attribute X_INTERFACE_PARAMETER of AXIS_RX2_TREADY : signal is "XIL_INTERFACENAME AXIS_RX2, TDATA_NUM_BYTES 64, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of AXIS_RX2_TVALID : signal is "xilinx.com:interface:axis:1.0 AXIS_RX2 TVALID";
   attribute X_INTERFACE_INFO of AXIS_RX_TLAST : signal is "xilinx.com:interface:axis:1.0 AXIS_RX TLAST";
   attribute X_INTERFACE_INFO of AXIS_RX_TREADY : signal is "xilinx.com:interface:axis:1.0 AXIS_RX TREADY";
-  attribute X_INTERFACE_PARAMETER : string;
   attribute X_INTERFACE_PARAMETER of AXIS_RX_TREADY : signal is "XIL_INTERFACENAME AXIS_RX, TDATA_NUM_BYTES 64, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0";
   attribute X_INTERFACE_INFO of AXIS_RX_TVALID : signal is "xilinx.com:interface:axis:1.0 AXIS_RX TVALID";
   attribute X_INTERFACE_INFO of clk : signal is "xilinx.com:signal:clock:1.0 clk CLK";
-  attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF AXIS_RX, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, INSERT_VIP 0";
+  attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF AXIS_RX:AXIS_RX2, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, INSERT_VIP 0";
+  attribute X_INTERFACE_INFO of AXIS_RX2_TDATA : signal is "xilinx.com:interface:axis:1.0 AXIS_RX2 TDATA";
+  attribute X_INTERFACE_INFO of AXIS_RX2_TKEEP : signal is "xilinx.com:interface:axis:1.0 AXIS_RX2 TKEEP";
   attribute X_INTERFACE_INFO of AXIS_RX_TDATA : signal is "xilinx.com:interface:axis:1.0 AXIS_RX TDATA";
   attribute X_INTERFACE_INFO of AXIS_RX_TKEEP : signal is "xilinx.com:interface:axis:1.0 AXIS_RX TKEEP";
 begin
+  AXIS_RX2_TREADY <= \<const1>\;
   AXIS_RX_TREADY <= \<const1>\;
 VCC: unisim.vcomponents.VCC
      port map (

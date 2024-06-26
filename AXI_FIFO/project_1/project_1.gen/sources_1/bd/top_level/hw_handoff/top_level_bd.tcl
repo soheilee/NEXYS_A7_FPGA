@@ -234,8 +234,11 @@ proc create_root_design { parentCell } {
   # Create instance: axis_data_fifo_0, and set properties
   set axis_data_fifo_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_data_fifo:2.0 axis_data_fifo_0 ]
   set_property -dict [ list \
-   CONFIG.FIFO_DEPTH {1024} \
+   CONFIG.FIFO_DEPTH {512} \
  ] $axis_data_fifo_0
+
+  # Create instance: axis_data_fifo_1, and set properties
+  set axis_data_fifo_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axis_data_fifo:2.0 axis_data_fifo_1 ]
 
   # Create instance: button_0, and set properties
   set block_name button
@@ -287,31 +290,40 @@ proc create_root_design { parentCell } {
   # Create instance: system_ila_0, and set properties
   set system_ila_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:system_ila:1.1 system_ila_0 ]
   set_property -dict [ list \
+   CONFIG.ALL_PROBE_SAME_MU_CNT {2} \
+   CONFIG.C_ADV_TRIGGER {true} \
    CONFIG.C_BRAM_CNT {32.5} \
+   CONFIG.C_EN_STRG_QUAL {1} \
    CONFIG.C_MON_TYPE {MIX} \
-   CONFIG.C_NUM_MONITOR_SLOTS {2} \
-   CONFIG.C_NUM_OF_PROBES {3} \
-   CONFIG.C_SLOT {1} \
+   CONFIG.C_NUM_MONITOR_SLOTS {3} \
+   CONFIG.C_NUM_OF_PROBES {2} \
+   CONFIG.C_PROBE0_MU_CNT {2} \
+   CONFIG.C_PROBE1_MU_CNT {2} \
+   CONFIG.C_SLOT {2} \
    CONFIG.C_SLOT_0_INTF_TYPE {xilinx.com:interface:axis_rtl:1.0} \
    CONFIG.C_SLOT_1_INTF_TYPE {xilinx.com:interface:axis_rtl:1.0} \
+   CONFIG.C_SLOT_2_INTF_TYPE {xilinx.com:interface:axis_rtl:1.0} \
  ] $system_ila_0
 
   # Create interface connections
   connect_bd_intf_net -intf_net axis_data_fifo_0_M_AXIS [get_bd_intf_pins axis_data_fifo_0/S_AXIS] [get_bd_intf_pins packet_counter_0/AXIS_OUT2]
-connect_bd_intf_net -intf_net [get_bd_intf_nets axis_data_fifo_0_M_AXIS] [get_bd_intf_pins packet_counter_0/AXIS_OUT2] [get_bd_intf_pins system_ila_0/SLOT_1_AXIS]
+connect_bd_intf_net -intf_net [get_bd_intf_nets axis_data_fifo_0_M_AXIS] [get_bd_intf_pins packet_counter_0/AXIS_OUT2] [get_bd_intf_pins system_ila_0/SLOT_0_AXIS]
   connect_bd_intf_net -intf_net axis_data_fifo_0_M_AXIS1 [get_bd_intf_pins axis_data_fifo_0/M_AXIS] [get_bd_intf_pins data_consumer_0/AXIS_RX]
-connect_bd_intf_net -intf_net [get_bd_intf_nets axis_data_fifo_0_M_AXIS1] [get_bd_intf_pins data_consumer_0/AXIS_RX] [get_bd_intf_pins system_ila_0/SLOT_0_AXIS]
+connect_bd_intf_net -intf_net [get_bd_intf_nets axis_data_fifo_0_M_AXIS1] [get_bd_intf_pins data_consumer_0/AXIS_RX] [get_bd_intf_pins system_ila_0/SLOT_1_AXIS]
+  connect_bd_intf_net -intf_net axis_data_fifo_1_M_AXIS [get_bd_intf_pins axis_data_fifo_1/M_AXIS] [get_bd_intf_pins data_consumer_0/AXIS_RX2]
+connect_bd_intf_net -intf_net [get_bd_intf_nets axis_data_fifo_1_M_AXIS] [get_bd_intf_pins data_consumer_0/AXIS_RX2] [get_bd_intf_pins system_ila_0/SLOT_2_AXIS]
+  connect_bd_intf_net -intf_net packet_counter_0_AXIS_OUT1 [get_bd_intf_pins axis_data_fifo_1/S_AXIS] [get_bd_intf_pins packet_counter_0/AXIS_OUT1]
   connect_bd_intf_net -intf_net packet_gen_0_axis_out [get_bd_intf_pins packet_counter_0/axis_in] [get_bd_intf_pins packet_gen_0/axis_out]
 
   # Create port connections
   connect_bd_net -net PIN_0_1 [get_bd_ports BTNU] [get_bd_pins button_0/PIN]
-  connect_bd_net -net button_0_Q [get_bd_pins button_0/Q] [get_bd_pins packet_gen_0/start] [get_bd_pins system_ila_0/probe0]
+  connect_bd_net -net button_0_Q [get_bd_pins button_0/Q] [get_bd_pins packet_gen_0/start] [get_bd_pins system_ila_0/resetn]
   connect_bd_net -net clk_in1_0_1 [get_bd_ports CLK100MHZ] [get_bd_pins source_100mhz/CLK100MHZ]
-  connect_bd_net -net clk_wiz_0_clk_100mhz [get_bd_pins axis_data_fifo_0/s_axis_aclk] [get_bd_pins button_0/CLK] [get_bd_pins data_consumer_0/clk] [get_bd_pins packet_counter_0/clk] [get_bd_pins packet_gen_0/clk] [get_bd_pins source_100mhz/clk_100mhz] [get_bd_pins system_ila_0/clk]
+  connect_bd_net -net clk_wiz_0_clk_100mhz [get_bd_pins axis_data_fifo_0/s_axis_aclk] [get_bd_pins axis_data_fifo_1/s_axis_aclk] [get_bd_pins button_0/CLK] [get_bd_pins data_consumer_0/clk] [get_bd_pins packet_counter_0/clk] [get_bd_pins packet_gen_0/clk] [get_bd_pins source_100mhz/clk_100mhz] [get_bd_pins system_ila_0/clk]
   connect_bd_net -net ext_reset_in_0_1 [get_bd_ports CPU_RESETN] [get_bd_pins source_100mhz/CPU_RESETN]
-  connect_bd_net -net packet_counter_0_packet_count [get_bd_pins data_consumer_0/packet_count] [get_bd_pins packet_counter_0/packet_count] [get_bd_pins system_ila_0/probe1]
-  connect_bd_net -net packet_counter_0_packet_size [get_bd_pins data_consumer_0/packet_size] [get_bd_pins packet_counter_0/packet_size] [get_bd_pins system_ila_0/probe2]
-  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins axis_data_fifo_0/s_axis_aresetn] [get_bd_pins packet_counter_0/resetn] [get_bd_pins packet_gen_0/resetn] [get_bd_pins source_100mhz/peripheral_aresetn]
+  connect_bd_net -net packet_counter_0_packet_count [get_bd_pins data_consumer_0/packet_count] [get_bd_pins packet_counter_0/packet_count] [get_bd_pins system_ila_0/probe0]
+  connect_bd_net -net packet_counter_0_packet_size [get_bd_pins data_consumer_0/packet_size] [get_bd_pins packet_counter_0/packet_size] [get_bd_pins system_ila_0/probe1]
+  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins axis_data_fifo_0/s_axis_aresetn] [get_bd_pins axis_data_fifo_1/s_axis_aresetn] [get_bd_pins packet_counter_0/resetn] [get_bd_pins packet_gen_0/resetn] [get_bd_pins source_100mhz/peripheral_aresetn]
 
   # Create address segments
 

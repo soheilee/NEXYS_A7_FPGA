@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
-// Date        : Wed Jun 26 12:08:06 2024
+// Date        : Wed Jun 26 14:57:18 2024
 // Host        : LUDMW030265 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/mottaghs/Documents/GitHub/NEXYS_A7_FPGA/AXI_FIFO/project_1/project_1.gen/sources_1/bd/top_level/ip/top_level_data_consumer_0_0/top_level_data_consumer_0_0_sim_netlist.v
@@ -22,19 +22,30 @@ module top_level_data_consumer_0_0
     AXIS_RX_TLAST,
     AXIS_RX_TVALID,
     AXIS_RX_TREADY,
+    AXIS_RX2_TDATA,
+    AXIS_RX2_TKEEP,
+    AXIS_RX2_TLAST,
+    AXIS_RX2_TVALID,
+    AXIS_RX2_TREADY,
     packet_count,
     packet_size);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF AXIS_RX, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF AXIS_RX:AXIS_RX2, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX TDATA" *) input [511:0]AXIS_RX_TDATA;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX TKEEP" *) input [63:0]AXIS_RX_TKEEP;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX TLAST" *) input AXIS_RX_TLAST;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX TVALID" *) input AXIS_RX_TVALID;
   (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME AXIS_RX, TDATA_NUM_BYTES 64, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *) output AXIS_RX_TREADY;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX2 TDATA" *) input [511:0]AXIS_RX2_TDATA;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX2 TKEEP" *) input [63:0]AXIS_RX2_TKEEP;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX2 TLAST" *) input AXIS_RX2_TLAST;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX2 TVALID" *) input AXIS_RX2_TVALID;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 AXIS_RX2 TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME AXIS_RX2, TDATA_NUM_BYTES 64, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *) output AXIS_RX2_TREADY;
   input [15:0]packet_count;
   input [15:0]packet_size;
 
   wire \<const1> ;
 
+  assign AXIS_RX2_TREADY = \<const1> ;
   assign AXIS_RX_TREADY = \<const1> ;
   VCC VCC
        (.P(\<const1> ));
