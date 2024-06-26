@@ -1,12 +1,16 @@
 module packet_counter (
     input clk, resentn,
+
+    // 7-Segment control signals
     output [31:0] sevenseg,
     output  [7:0] digital_enable,
+
+    // Measured signals in this module
     output [31:0] count_keep,
     output [7:0] packetcounter_output,
     output [7:0] cyclecounter_output,
 
-
+    // AXI Stream 
     input [255:0] axisin_tdata,
     input [31:0] axisin_tkeep,
     input axisin_tvalid,
