@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
-//Date        : Wed Jun 26 15:08:08 2024
+//Date        : Fri Jun 28 17:05:23 2024
 //Host        : LUDMW030265 running 64-bit major release  (build 9200)
 //Command     : generate_target top_level.bd
 //Design      : top_level
@@ -50,32 +50,27 @@ module top_level
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.CPU_RESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.CPU_RESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input CPU_RESETN;
 
   wire PIN_0_1;
-  (* CONN_BUS_INFO = "axis_data_fifo_0_M_AXIS1 xilinx.com:interface:axis:1.0 None TDATA" *) (* DONT_TOUCH *) wire [511:0]axis_data_fifo_0_M_AXIS1_TDATA;
-  (* CONN_BUS_INFO = "axis_data_fifo_0_M_AXIS1 xilinx.com:interface:axis:1.0 None TKEEP" *) (* DONT_TOUCH *) wire [63:0]axis_data_fifo_0_M_AXIS1_TKEEP;
-  (* CONN_BUS_INFO = "axis_data_fifo_0_M_AXIS1 xilinx.com:interface:axis:1.0 None TLAST" *) (* DONT_TOUCH *) wire axis_data_fifo_0_M_AXIS1_TLAST;
-  (* CONN_BUS_INFO = "axis_data_fifo_0_M_AXIS1 xilinx.com:interface:axis:1.0 None TREADY" *) (* DONT_TOUCH *) wire axis_data_fifo_0_M_AXIS1_TREADY;
-  (* CONN_BUS_INFO = "axis_data_fifo_0_M_AXIS1 xilinx.com:interface:axis:1.0 None TVALID" *) (* DONT_TOUCH *) wire axis_data_fifo_0_M_AXIS1_TVALID;
-  (* CONN_BUS_INFO = "axis_data_fifo_0_M_AXIS xilinx.com:interface:axis:1.0 None TDATA" *) (* DONT_TOUCH *) wire [511:0]axis_data_fifo_0_M_AXIS_TDATA;
-  (* CONN_BUS_INFO = "axis_data_fifo_0_M_AXIS xilinx.com:interface:axis:1.0 None TKEEP" *) (* DONT_TOUCH *) wire [63:0]axis_data_fifo_0_M_AXIS_TKEEP;
-  (* CONN_BUS_INFO = "axis_data_fifo_0_M_AXIS xilinx.com:interface:axis:1.0 None TLAST" *) (* DONT_TOUCH *) wire axis_data_fifo_0_M_AXIS_TLAST;
-  (* CONN_BUS_INFO = "axis_data_fifo_0_M_AXIS xilinx.com:interface:axis:1.0 None TREADY" *) (* DONT_TOUCH *) wire axis_data_fifo_0_M_AXIS_TREADY;
-  (* CONN_BUS_INFO = "axis_data_fifo_0_M_AXIS xilinx.com:interface:axis:1.0 None TVALID" *) (* DONT_TOUCH *) wire axis_data_fifo_0_M_AXIS_TVALID;
-  (* CONN_BUS_INFO = "axis_data_fifo_1_M_AXIS xilinx.com:interface:axis:1.0 None TDATA" *) (* DONT_TOUCH *) wire [511:0]axis_data_fifo_1_M_AXIS_TDATA;
-  (* CONN_BUS_INFO = "axis_data_fifo_1_M_AXIS xilinx.com:interface:axis:1.0 None TKEEP" *) (* DONT_TOUCH *) wire [63:0]axis_data_fifo_1_M_AXIS_TKEEP;
-  (* CONN_BUS_INFO = "axis_data_fifo_1_M_AXIS xilinx.com:interface:axis:1.0 None TLAST" *) (* DONT_TOUCH *) wire axis_data_fifo_1_M_AXIS_TLAST;
-  (* CONN_BUS_INFO = "axis_data_fifo_1_M_AXIS xilinx.com:interface:axis:1.0 None TREADY" *) (* DONT_TOUCH *) wire axis_data_fifo_1_M_AXIS_TREADY;
-  (* CONN_BUS_INFO = "axis_data_fifo_1_M_AXIS xilinx.com:interface:axis:1.0 None TVALID" *) (* DONT_TOUCH *) wire axis_data_fifo_1_M_AXIS_TVALID;
+  wire [511:0]axis_data_fifo_packetbody_M_AXIS_TDATA;
+  wire [63:0]axis_data_fifo_packetbody_M_AXIS_TKEEP;
+  wire axis_data_fifo_packetbody_M_AXIS_TLAST;
+  wire axis_data_fifo_packetbody_M_AXIS_TREADY;
+  wire axis_data_fifo_packetbody_M_AXIS_TVALID;
+  (* CONN_BUS_INFO = "axis_data_fifo_packetsize_M_AXIS xilinx.com:interface:axis:1.0 None TDATA" *) (* DONT_TOUCH *) wire [15:0]axis_data_fifo_packetsize_M_AXIS_TDATA;
+  (* CONN_BUS_INFO = "axis_data_fifo_packetsize_M_AXIS xilinx.com:interface:axis:1.0 None TREADY" *) (* DONT_TOUCH *) wire axis_data_fifo_packetsize_M_AXIS_TREADY;
+  (* CONN_BUS_INFO = "axis_data_fifo_packetsize_M_AXIS xilinx.com:interface:axis:1.0 None TVALID" *) (* DONT_TOUCH *) wire axis_data_fifo_packetsize_M_AXIS_TVALID;
   wire button_0_Q;
   wire clk_in1_0_1;
   wire clk_wiz_0_clk_100mhz;
   wire ext_reset_in_0_1;
-  wire [511:0]packet_counter_0_AXIS_OUT1_TDATA;
-  wire [63:0]packet_counter_0_AXIS_OUT1_TKEEP;
-  wire packet_counter_0_AXIS_OUT1_TLAST;
-  wire packet_counter_0_AXIS_OUT1_TREADY;
-  wire packet_counter_0_AXIS_OUT1_TVALID;
-  wire [15:0]packet_counter_0_packet_count;
-  wire [15:0]packet_counter_0_packet_size;
+  (* CONN_BUS_INFO = "packet_analyzer_0_axis_packetbody xilinx.com:interface:axis:1.0 None TDATA" *) (* DONT_TOUCH *) wire [511:0]packet_analyzer_0_axis_packetbody_TDATA;
+  (* CONN_BUS_INFO = "packet_analyzer_0_axis_packetbody xilinx.com:interface:axis:1.0 None TKEEP" *) (* DONT_TOUCH *) wire [63:0]packet_analyzer_0_axis_packetbody_TKEEP;
+  (* CONN_BUS_INFO = "packet_analyzer_0_axis_packetbody xilinx.com:interface:axis:1.0 None TLAST" *) (* DONT_TOUCH *) wire packet_analyzer_0_axis_packetbody_TLAST;
+  (* CONN_BUS_INFO = "packet_analyzer_0_axis_packetbody xilinx.com:interface:axis:1.0 None TREADY" *) (* DONT_TOUCH *) wire packet_analyzer_0_axis_packetbody_TREADY;
+  (* CONN_BUS_INFO = "packet_analyzer_0_axis_packetbody xilinx.com:interface:axis:1.0 None TVALID" *) (* DONT_TOUCH *) wire packet_analyzer_0_axis_packetbody_TVALID;
+  wire [15:0]packet_analyzer_0_axis_packetsize_TDATA;
+  wire packet_analyzer_0_axis_packetsize_TREADY;
+  wire packet_analyzer_0_axis_packetsize_TVALID;
+  wire [15:0]packet_analyzer_0_packet_size;
   wire [511:0]packet_gen_0_axis_out_TDATA;
   wire [63:0]packet_gen_0_axis_out_TKEEP;
   wire packet_gen_0_axis_out_TLAST;
@@ -86,69 +81,61 @@ module top_level
   assign PIN_0_1 = BTNU;
   assign clk_in1_0_1 = CLK100MHZ;
   assign ext_reset_in_0_1 = CPU_RESETN;
-  top_level_axis_data_fifo_0_0 axis_data_fifo_0
-       (.m_axis_tdata(axis_data_fifo_0_M_AXIS1_TDATA),
-        .m_axis_tkeep(axis_data_fifo_0_M_AXIS1_TKEEP),
-        .m_axis_tlast(axis_data_fifo_0_M_AXIS1_TLAST),
-        .m_axis_tready(axis_data_fifo_0_M_AXIS1_TREADY),
-        .m_axis_tvalid(axis_data_fifo_0_M_AXIS1_TVALID),
+  top_level_axis_data_fifo_0_1 axis_data_fifo_packetbody
+       (.m_axis_tdata(axis_data_fifo_packetbody_M_AXIS_TDATA),
+        .m_axis_tkeep(axis_data_fifo_packetbody_M_AXIS_TKEEP),
+        .m_axis_tlast(axis_data_fifo_packetbody_M_AXIS_TLAST),
+        .m_axis_tready(axis_data_fifo_packetbody_M_AXIS_TREADY),
+        .m_axis_tvalid(axis_data_fifo_packetbody_M_AXIS_TVALID),
         .s_axis_aclk(clk_wiz_0_clk_100mhz),
         .s_axis_aresetn(proc_sys_reset_0_peripheral_aresetn),
-        .s_axis_tdata(axis_data_fifo_0_M_AXIS_TDATA),
-        .s_axis_tkeep(axis_data_fifo_0_M_AXIS_TKEEP),
-        .s_axis_tlast(axis_data_fifo_0_M_AXIS_TLAST),
-        .s_axis_tready(axis_data_fifo_0_M_AXIS_TREADY),
-        .s_axis_tvalid(axis_data_fifo_0_M_AXIS_TVALID));
-  top_level_axis_data_fifo_1_0 axis_data_fifo_1
-       (.m_axis_tdata(axis_data_fifo_1_M_AXIS_TDATA),
-        .m_axis_tkeep(axis_data_fifo_1_M_AXIS_TKEEP),
-        .m_axis_tlast(axis_data_fifo_1_M_AXIS_TLAST),
-        .m_axis_tready(axis_data_fifo_1_M_AXIS_TREADY),
-        .m_axis_tvalid(axis_data_fifo_1_M_AXIS_TVALID),
+        .s_axis_tdata(packet_analyzer_0_axis_packetbody_TDATA),
+        .s_axis_tkeep(packet_analyzer_0_axis_packetbody_TKEEP),
+        .s_axis_tlast(packet_analyzer_0_axis_packetbody_TLAST),
+        .s_axis_tready(packet_analyzer_0_axis_packetbody_TREADY),
+        .s_axis_tvalid(packet_analyzer_0_axis_packetbody_TVALID));
+  top_level_axis_data_fifo_0_2 axis_data_fifo_packetsize
+       (.m_axis_tdata(axis_data_fifo_packetsize_M_AXIS_TDATA),
+        .m_axis_tready(axis_data_fifo_packetsize_M_AXIS_TREADY),
+        .m_axis_tvalid(axis_data_fifo_packetsize_M_AXIS_TVALID),
         .s_axis_aclk(clk_wiz_0_clk_100mhz),
         .s_axis_aresetn(proc_sys_reset_0_peripheral_aresetn),
-        .s_axis_tdata(packet_counter_0_AXIS_OUT1_TDATA),
-        .s_axis_tkeep(packet_counter_0_AXIS_OUT1_TKEEP),
-        .s_axis_tlast(packet_counter_0_AXIS_OUT1_TLAST),
-        .s_axis_tready(packet_counter_0_AXIS_OUT1_TREADY),
-        .s_axis_tvalid(packet_counter_0_AXIS_OUT1_TVALID));
+        .s_axis_tdata(packet_analyzer_0_axis_packetsize_TDATA),
+        .s_axis_tready(packet_analyzer_0_axis_packetsize_TREADY),
+        .s_axis_tvalid(packet_analyzer_0_axis_packetsize_TVALID));
   top_level_button_0_0 button_0
        (.CLK(clk_wiz_0_clk_100mhz),
         .PIN(PIN_0_1),
         .Q(button_0_Q));
-  top_level_data_consumer_0_0 data_consumer_0
-       (.AXIS_RX2_TDATA(axis_data_fifo_1_M_AXIS_TDATA),
-        .AXIS_RX2_TKEEP(axis_data_fifo_1_M_AXIS_TKEEP),
-        .AXIS_RX2_TLAST(axis_data_fifo_1_M_AXIS_TLAST),
-        .AXIS_RX2_TREADY(axis_data_fifo_1_M_AXIS_TREADY),
-        .AXIS_RX2_TVALID(axis_data_fifo_1_M_AXIS_TVALID),
-        .AXIS_RX_TDATA(axis_data_fifo_0_M_AXIS1_TDATA),
-        .AXIS_RX_TKEEP(axis_data_fifo_0_M_AXIS1_TKEEP),
-        .AXIS_RX_TLAST(axis_data_fifo_0_M_AXIS1_TLAST),
-        .AXIS_RX_TREADY(axis_data_fifo_0_M_AXIS1_TREADY),
-        .AXIS_RX_TVALID(axis_data_fifo_0_M_AXIS1_TVALID),
+  top_level_data_consumer_0_1 data_consumer_0
+       (.axis_packetbody_tdata(axis_data_fifo_packetbody_M_AXIS_TDATA),
+        .axis_packetbody_tkeep(axis_data_fifo_packetbody_M_AXIS_TKEEP),
+        .axis_packetbody_tlast(axis_data_fifo_packetbody_M_AXIS_TLAST),
+        .axis_packetbody_tready(axis_data_fifo_packetbody_M_AXIS_TREADY),
+        .axis_packetbody_tvalid(axis_data_fifo_packetbody_M_AXIS_TVALID),
+        .axis_packetsize_tdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axis_data_fifo_packetsize_M_AXIS_TDATA}),
+        .axis_packetsize_tkeep({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
+        .axis_packetsize_tlast(1'b0),
+        .axis_packetsize_tready(axis_data_fifo_packetsize_M_AXIS_TREADY),
+        .axis_packetsize_tvalid(axis_data_fifo_packetsize_M_AXIS_TVALID),
         .clk(clk_wiz_0_clk_100mhz),
-        .packet_count(packet_counter_0_packet_count),
-        .packet_size(packet_counter_0_packet_size));
-  top_level_packet_counter_0_0 packet_counter_0
-       (.AXIS_OUT1_TDATA(packet_counter_0_AXIS_OUT1_TDATA),
-        .AXIS_OUT1_TKEEP(packet_counter_0_AXIS_OUT1_TKEEP),
-        .AXIS_OUT1_TLAST(packet_counter_0_AXIS_OUT1_TLAST),
-        .AXIS_OUT1_TREADY(packet_counter_0_AXIS_OUT1_TREADY),
-        .AXIS_OUT1_TVALID(packet_counter_0_AXIS_OUT1_TVALID),
-        .AXIS_OUT2_TDATA(axis_data_fifo_0_M_AXIS_TDATA),
-        .AXIS_OUT2_TKEEP(axis_data_fifo_0_M_AXIS_TKEEP),
-        .AXIS_OUT2_TLAST(axis_data_fifo_0_M_AXIS_TLAST),
-        .AXIS_OUT2_TREADY(axis_data_fifo_0_M_AXIS_TREADY),
-        .AXIS_OUT2_TVALID(axis_data_fifo_0_M_AXIS_TVALID),
-        .axis_in_tdata(packet_gen_0_axis_out_TDATA),
+        .packet_size(packet_analyzer_0_packet_size));
+  top_level_packet_analyzer_0_0 packet_analyzer_0
+       (.axis_in_tdata(packet_gen_0_axis_out_TDATA),
         .axis_in_tkeep(packet_gen_0_axis_out_TKEEP),
         .axis_in_tlast(packet_gen_0_axis_out_TLAST),
         .axis_in_tready(packet_gen_0_axis_out_TREADY),
         .axis_in_tvalid(packet_gen_0_axis_out_TVALID),
+        .axis_packetbody_tdata(packet_analyzer_0_axis_packetbody_TDATA),
+        .axis_packetbody_tkeep(packet_analyzer_0_axis_packetbody_TKEEP),
+        .axis_packetbody_tlast(packet_analyzer_0_axis_packetbody_TLAST),
+        .axis_packetbody_tready(packet_analyzer_0_axis_packetbody_TREADY),
+        .axis_packetbody_tvalid(packet_analyzer_0_axis_packetbody_TVALID),
+        .axis_packetsize_tdata(packet_analyzer_0_axis_packetsize_TDATA),
+        .axis_packetsize_tready(packet_analyzer_0_axis_packetsize_TREADY),
+        .axis_packetsize_tvalid(packet_analyzer_0_axis_packetsize_TVALID),
         .clk(clk_wiz_0_clk_100mhz),
-        .packet_count(packet_counter_0_packet_count),
-        .packet_size(packet_counter_0_packet_size),
+        .packet_size(packet_analyzer_0_packet_size),
         .resetn(proc_sys_reset_0_peripheral_aresetn));
   top_level_packet_gen_0_0 packet_gen_0
        (.axis_out_tdata(packet_gen_0_axis_out_TDATA),
@@ -164,24 +151,17 @@ module top_level
         .CPU_RESETN(ext_reset_in_0_1),
         .clk_100mhz(clk_wiz_0_clk_100mhz),
         .peripheral_aresetn(proc_sys_reset_0_peripheral_aresetn));
-  top_level_system_ila_0_2 system_ila_0
-       (.SLOT_0_AXIS_tdata(axis_data_fifo_0_M_AXIS_TDATA),
-        .SLOT_0_AXIS_tkeep(axis_data_fifo_0_M_AXIS_TKEEP),
-        .SLOT_0_AXIS_tlast(axis_data_fifo_0_M_AXIS_TLAST),
-        .SLOT_0_AXIS_tready(axis_data_fifo_0_M_AXIS_TREADY),
-        .SLOT_0_AXIS_tvalid(axis_data_fifo_0_M_AXIS_TVALID),
-        .SLOT_1_AXIS_tdata(axis_data_fifo_0_M_AXIS1_TDATA),
-        .SLOT_1_AXIS_tkeep(axis_data_fifo_0_M_AXIS1_TKEEP),
-        .SLOT_1_AXIS_tlast(axis_data_fifo_0_M_AXIS1_TLAST),
-        .SLOT_1_AXIS_tready(axis_data_fifo_0_M_AXIS1_TREADY),
-        .SLOT_1_AXIS_tvalid(axis_data_fifo_0_M_AXIS1_TVALID),
-        .SLOT_2_AXIS_tdata(axis_data_fifo_1_M_AXIS_TDATA),
-        .SLOT_2_AXIS_tkeep(axis_data_fifo_1_M_AXIS_TKEEP),
-        .SLOT_2_AXIS_tlast(axis_data_fifo_1_M_AXIS_TLAST),
-        .SLOT_2_AXIS_tready(axis_data_fifo_1_M_AXIS_TREADY),
-        .SLOT_2_AXIS_tvalid(axis_data_fifo_1_M_AXIS_TVALID),
+  top_level_system_ila_0_3 system_ila_0
+       (.SLOT_0_AXIS_tdata(packet_analyzer_0_axis_packetbody_TDATA),
+        .SLOT_0_AXIS_tkeep(packet_analyzer_0_axis_packetbody_TKEEP),
+        .SLOT_0_AXIS_tlast(packet_analyzer_0_axis_packetbody_TLAST),
+        .SLOT_0_AXIS_tready(packet_analyzer_0_axis_packetbody_TREADY),
+        .SLOT_0_AXIS_tvalid(packet_analyzer_0_axis_packetbody_TVALID),
+        .SLOT_1_AXIS_tdata(axis_data_fifo_packetsize_M_AXIS_TDATA),
+        .SLOT_1_AXIS_tlast(1'b0),
+        .SLOT_1_AXIS_tready(axis_data_fifo_packetsize_M_AXIS_TREADY),
+        .SLOT_1_AXIS_tvalid(axis_data_fifo_packetsize_M_AXIS_TVALID),
         .clk(clk_wiz_0_clk_100mhz),
-        .probe0(packet_counter_0_packet_count),
-        .probe1(packet_counter_0_packet_size),
-        .resetn(button_0_Q));
+        .probe0(packet_analyzer_0_packet_size),
+        .resetn(1'b1));
 endmodule

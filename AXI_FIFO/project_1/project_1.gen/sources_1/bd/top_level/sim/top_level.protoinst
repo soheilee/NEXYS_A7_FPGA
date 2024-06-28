@@ -3,7 +3,7 @@
 	"modules": {
 		"top_level": {
 			"proto_instances": {
-				"/axis_data_fifo_0/M_AXIS": {
+				"/axis_data_fifo_packetbody/M_AXIS": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "s_axis_aclk"},
@@ -15,7 +15,7 @@
 						"TVALID": { "actual": "m_axis_tvalid"}
 					}
 				},
-				"/axis_data_fifo_0/S_AXIS": {
+				"/axis_data_fifo_packetbody/S_AXIS": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "s_axis_aclk"},
@@ -27,77 +27,49 @@
 						"TVALID": { "actual": "s_axis_tvalid"}
 					}
 				},
-				"/axis_data_fifo_1/M_AXIS": {
+				"/axis_data_fifo_packetsize/M_AXIS": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "s_axis_aclk"},
 						"ARESETN": { "actual": "s_axis_aresetn"},
 						"TDATA": { "actual": "m_axis_tdata"},
-						"TKEEP": { "actual": "m_axis_tkeep"},
-						"TLAST": { "actual": "m_axis_tlast"},
 						"TREADY": { "actual": "m_axis_tready"},
 						"TVALID": { "actual": "m_axis_tvalid"}
 					}
 				},
-				"/axis_data_fifo_1/S_AXIS": {
+				"/axis_data_fifo_packetsize/S_AXIS": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "s_axis_aclk"},
 						"ARESETN": { "actual": "s_axis_aresetn"},
 						"TDATA": { "actual": "s_axis_tdata"},
-						"TKEEP": { "actual": "s_axis_tkeep"},
-						"TLAST": { "actual": "s_axis_tlast"},
 						"TREADY": { "actual": "s_axis_tready"},
 						"TVALID": { "actual": "s_axis_tvalid"}
 					}
 				},
-				"/data_consumer_0/AXIS_RX": {
+				"/data_consumer_0/axis_packetbody": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "clk"},
-						"TDATA": { "actual": "AXIS_RX_TDATA"},
-						"TKEEP": { "actual": "AXIS_RX_TKEEP"},
-						"TLAST": { "actual": "AXIS_RX_TLAST"},
-						"TREADY": { "actual": "AXIS_RX_TREADY"},
-						"TVALID": { "actual": "AXIS_RX_TVALID"}
+						"TDATA": { "actual": "axis_packetbody_tdata"},
+						"TKEEP": { "actual": "axis_packetbody_tkeep"},
+						"TLAST": { "actual": "axis_packetbody_tlast"},
+						"TREADY": { "actual": "axis_packetbody_tready"},
+						"TVALID": { "actual": "axis_packetbody_tvalid"}
 					}
 				},
-				"/data_consumer_0/AXIS_RX2": {
+				"/data_consumer_0/axis_packetsize": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "clk"},
-						"TDATA": { "actual": "AXIS_RX2_TDATA"},
-						"TKEEP": { "actual": "AXIS_RX2_TKEEP"},
-						"TLAST": { "actual": "AXIS_RX2_TLAST"},
-						"TREADY": { "actual": "AXIS_RX2_TREADY"},
-						"TVALID": { "actual": "AXIS_RX2_TVALID"}
+						"TDATA": { "actual": "axis_packetsize_tdata"},
+						"TKEEP": { "actual": "axis_packetsize_tkeep"},
+						"TLAST": { "actual": "axis_packetsize_tlast"},
+						"TREADY": { "actual": "axis_packetsize_tready"},
+						"TVALID": { "actual": "axis_packetsize_tvalid"}
 					}
 				},
-				"/packet_counter_0/AXIS_OUT1": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "clk"},
-						"ARESETN": { "actual": "resetn"},
-						"TDATA": { "actual": "AXIS_OUT1_TDATA"},
-						"TKEEP": { "actual": "AXIS_OUT1_TKEEP"},
-						"TLAST": { "actual": "AXIS_OUT1_TLAST"},
-						"TREADY": { "actual": "AXIS_OUT1_TREADY"},
-						"TVALID": { "actual": "AXIS_OUT1_TVALID"}
-					}
-				},
-				"/packet_counter_0/AXIS_OUT2": {
-					"interface": "xilinx.com:interface:axis:1.0",
-					"ports": {
-						"ACLK": { "actual": "clk"},
-						"ARESETN": { "actual": "resetn"},
-						"TDATA": { "actual": "AXIS_OUT2_TDATA"},
-						"TKEEP": { "actual": "AXIS_OUT2_TKEEP"},
-						"TLAST": { "actual": "AXIS_OUT2_TLAST"},
-						"TREADY": { "actual": "AXIS_OUT2_TREADY"},
-						"TVALID": { "actual": "AXIS_OUT2_TVALID"}
-					}
-				},
-				"/packet_counter_0/axis_in": {
+				"/packet_analyzer_0/axis_in": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "clk"},
@@ -107,6 +79,28 @@
 						"TLAST": { "actual": "axis_in_tlast"},
 						"TREADY": { "actual": "axis_in_tready"},
 						"TVALID": { "actual": "axis_in_tvalid"}
+					}
+				},
+				"/packet_analyzer_0/axis_packetbody": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk"},
+						"ARESETN": { "actual": "resetn"},
+						"TDATA": { "actual": "axis_packetbody_tdata"},
+						"TKEEP": { "actual": "axis_packetbody_tkeep"},
+						"TLAST": { "actual": "axis_packetbody_tlast"},
+						"TREADY": { "actual": "axis_packetbody_tready"},
+						"TVALID": { "actual": "axis_packetbody_tvalid"}
+					}
+				},
+				"/packet_analyzer_0/axis_packetsize": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk"},
+						"ARESETN": { "actual": "resetn"},
+						"TDATA": { "actual": "axis_packetsize_tdata"},
+						"TREADY": { "actual": "axis_packetsize_tready"},
+						"TVALID": { "actual": "axis_packetsize_tvalid"}
 					}
 				},
 				"/packet_gen_0/axis_out": {
