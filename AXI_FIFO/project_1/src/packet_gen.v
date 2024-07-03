@@ -1,4 +1,4 @@
-module packet_gen # (parameter DW=512)
+module packet_gen # (parameter DW=128)
 (
     input   clk, resetn,
 

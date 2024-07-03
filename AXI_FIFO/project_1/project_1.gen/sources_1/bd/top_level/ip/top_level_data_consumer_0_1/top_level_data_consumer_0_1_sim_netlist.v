@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
-// Date        : Fri Jun 28 16:45:56 2024
+// Date        : Wed Jul  3 15:10:51 2024
 // Host        : LUDMW030265 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/mottaghs/Documents/GitHub/NEXYS_A7_FPGA/AXI_FIFO/project_1/project_1.gen/sources_1/bd/top_level/ip/top_level_data_consumer_0_1/top_level_data_consumer_0_1_sim_netlist.v
@@ -17,34 +17,25 @@
 (* NotValidForBitStream *)
 module top_level_data_consumer_0_1
    (clk,
-    axis_packetbody_tdata,
-    axis_packetbody_tkeep,
-    axis_packetbody_tlast,
-    axis_packetbody_tvalid,
-    axis_packetbody_tready,
-    axis_packetsize_tdata,
-    axis_packetsize_tkeep,
-    axis_packetsize_tlast,
-    axis_packetsize_tvalid,
-    axis_packetsize_tready,
+    resetn,
+    axis_rx_tdata,
+    axis_rx_tkeep,
+    axis_rx_tlast,
+    axis_rx_tvalid,
+    axis_rx_tready,
     packet_size);
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF axis_packetbody:axis_packetsize, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 axis_packetbody TDATA" *) input [511:0]axis_packetbody_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 axis_packetbody TKEEP" *) input [63:0]axis_packetbody_tkeep;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 axis_packetbody TLAST" *) input axis_packetbody_tlast;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 axis_packetbody TVALID" *) input axis_packetbody_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 axis_packetbody TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME axis_packetbody, TDATA_NUM_BYTES 64, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *) output axis_packetbody_tready;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 axis_packetsize TDATA" *) input [511:0]axis_packetsize_tdata;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 axis_packetsize TKEEP" *) input [63:0]axis_packetsize_tkeep;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 axis_packetsize TLAST" *) input axis_packetsize_tlast;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 axis_packetsize TVALID" *) input axis_packetsize_tvalid;
-  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 axis_packetsize TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME axis_packetsize, TDATA_NUM_BYTES 64, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *) output axis_packetsize_tready;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_BUSIF axis_rx, ASSOCIATED_RESET resetn, FREQ_HZ 100000000, FREQ_TOLERANCE_HZ 0, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, INSERT_VIP 0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW, INSERT_VIP 0" *) input resetn;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 axis_rx TDATA" *) input [127:0]axis_rx_tdata;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 axis_rx TKEEP" *) input [15:0]axis_rx_tkeep;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 axis_rx TLAST" *) input axis_rx_tlast;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 axis_rx TVALID" *) input axis_rx_tvalid;
+  (* X_INTERFACE_INFO = "xilinx.com:interface:axis:1.0 axis_rx TREADY" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME axis_rx, TDATA_NUM_BYTES 16, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 1, HAS_TSTRB 0, HAS_TKEEP 1, HAS_TLAST 1, FREQ_HZ 100000000, PHASE 0.0, CLK_DOMAIN /source_100mhz/clk_wiz_0_clk_out1, LAYERED_METADATA undef, INSERT_VIP 0" *) output axis_rx_tready;
   input [15:0]packet_size;
 
   wire \<const1> ;
 
-  assign axis_packetbody_tready = \<const1> ;
-  assign axis_packetsize_tready = \<const1> ;
+  assign axis_rx_tready = \<const1> ;
   VCC VCC
        (.P(\<const1> ));
 endmodule

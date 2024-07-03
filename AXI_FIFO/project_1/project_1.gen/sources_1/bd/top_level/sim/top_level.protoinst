@@ -47,26 +47,50 @@
 						"TVALID": { "actual": "s_axis_tvalid"}
 					}
 				},
-				"/data_consumer_0/axis_packetbody": {
+				"/data_consumer_0/axis_rx": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "clk"},
-						"TDATA": { "actual": "axis_packetbody_tdata"},
-						"TKEEP": { "actual": "axis_packetbody_tkeep"},
-						"TLAST": { "actual": "axis_packetbody_tlast"},
-						"TREADY": { "actual": "axis_packetbody_tready"},
-						"TVALID": { "actual": "axis_packetbody_tvalid"}
+						"ARESETN": { "actual": "resetn"},
+						"TDATA": { "actual": "axis_rx_tdata"},
+						"TKEEP": { "actual": "axis_rx_tkeep"},
+						"TLAST": { "actual": "axis_rx_tlast"},
+						"TREADY": { "actual": "axis_rx_tready"},
+						"TVALID": { "actual": "axis_rx_tvalid"}
 					}
 				},
-				"/data_consumer_0/axis_packetsize": {
+				"/header_adding_module_0/axis_pbody": {
 					"interface": "xilinx.com:interface:axis:1.0",
 					"ports": {
 						"ACLK": { "actual": "clk"},
-						"TDATA": { "actual": "axis_packetsize_tdata"},
-						"TKEEP": { "actual": "axis_packetsize_tkeep"},
-						"TLAST": { "actual": "axis_packetsize_tlast"},
-						"TREADY": { "actual": "axis_packetsize_tready"},
-						"TVALID": { "actual": "axis_packetsize_tvalid"}
+						"ARESETN": { "actual": "resetn"},
+						"TDATA": { "actual": "axis_pbody_tdata"},
+						"TKEEP": { "actual": "axis_pbody_tkeep"},
+						"TLAST": { "actual": "axis_pbody_tlast"},
+						"TREADY": { "actual": "axis_pbody_tready"},
+						"TVALID": { "actual": "axis_pbody_tvalid"}
+					}
+				},
+				"/header_adding_module_0/axis_psize": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk"},
+						"ARESETN": { "actual": "resetn"},
+						"TDATA": { "actual": "axis_psize_tdata"},
+						"TREADY": { "actual": "axis_psize_tready"},
+						"TVALID": { "actual": "axis_psize_tvalid"}
+					}
+				},
+				"/header_adding_module_0/axis_pwithheader": {
+					"interface": "xilinx.com:interface:axis:1.0",
+					"ports": {
+						"ACLK": { "actual": "clk"},
+						"ARESETN": { "actual": "resetn"},
+						"TDATA": { "actual": "axis_pwithheader_tdata"},
+						"TKEEP": { "actual": "axis_pwithheader_tkeep"},
+						"TLAST": { "actual": "axis_pwithheader_tlast"},
+						"TREADY": { "actual": "axis_pwithheader_tready"},
+						"TVALID": { "actual": "axis_pwithheader_tvalid"}
 					}
 				},
 				"/packet_analyzer_0/axis_in": {

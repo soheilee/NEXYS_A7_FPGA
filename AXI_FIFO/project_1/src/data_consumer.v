@@ -1,27 +1,19 @@
-module data_consumer # (parameter DW=512)
+module data_consumer # (parameter DW=128)
 (
-    input           clk,
+    input           clk, resetn,
 
-    input[DW-1:0]   axis_packetbody_tdata,
-    input[DW/8-1:0] axis_packetbody_tkeep,
-    input           axis_packetbody_tlast,
-    input           axis_packetbody_tvalid,
-    output reg      axis_packetbody_tready,
+    input[DW-1:0]   axis_rx_tdata,
+    input[DW/8-1:0] axis_rx_tkeep,
+    input           axis_rx_tlast,
+    input           axis_rx_tvalid,
+    output reg      axis_rx_tready,
 
-
-
-    input[DW-1:0]   axis_packetsize_tdata,
-    input[DW/8-1:0] axis_packetsize_tkeep,
-    input           axis_packetsize_tlast,
-    input           axis_packetsize_tvalid,
-    output reg      axis_packetsize_tready,
 
     input [15:0]  packet_size
 );
 
 always @(posedge clk) begin
-    axis_packetbody_tready <= 1;
-    axis_packetsize_tready <= 1;
+    axis_rx_tready <= 1;
 end
 
 endmodule

@@ -1,7 +1,7 @@
 //Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
-//Date        : Fri Jun 28 17:05:23 2024
+//Date        : Wed Jul  3 15:25:43 2024
 //Host        : LUDMW030265 running 64-bit major release  (build 9200)
 //Command     : generate_target top_level.bd
 //Design      : top_level
@@ -40,7 +40,7 @@ module source_100mhz_imp_MSWE0P
         .slowest_sync_clk(clk_wiz_0_clk_100mhz));
 endmodule
 
-(* CORE_GENERATION_INFO = "top_level,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top_level,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=10,numReposBlks=9,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=4,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top_level.hwdef" *) 
+(* CORE_GENERATION_INFO = "top_level,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=top_level,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=11,numReposBlks=10,numNonXlnxBlks=0,numHierBlks=1,maxHierDepth=1,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=5,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "top_level.hwdef" *) 
 module top_level
    (BTNU,
     CLK100MHZ,
@@ -50,11 +50,11 @@ module top_level
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.CPU_RESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.CPU_RESETN, INSERT_VIP 0, POLARITY ACTIVE_LOW" *) input CPU_RESETN;
 
   wire PIN_0_1;
-  wire [511:0]axis_data_fifo_packetbody_M_AXIS_TDATA;
-  wire [63:0]axis_data_fifo_packetbody_M_AXIS_TKEEP;
-  wire axis_data_fifo_packetbody_M_AXIS_TLAST;
-  wire axis_data_fifo_packetbody_M_AXIS_TREADY;
-  wire axis_data_fifo_packetbody_M_AXIS_TVALID;
+  (* CONN_BUS_INFO = "axis_data_fifo_packetbody_M_AXIS xilinx.com:interface:axis:1.0 None TDATA" *) (* DONT_TOUCH *) wire [127:0]axis_data_fifo_packetbody_M_AXIS_TDATA;
+  (* CONN_BUS_INFO = "axis_data_fifo_packetbody_M_AXIS xilinx.com:interface:axis:1.0 None TKEEP" *) (* DONT_TOUCH *) wire [15:0]axis_data_fifo_packetbody_M_AXIS_TKEEP;
+  (* CONN_BUS_INFO = "axis_data_fifo_packetbody_M_AXIS xilinx.com:interface:axis:1.0 None TLAST" *) (* DONT_TOUCH *) wire axis_data_fifo_packetbody_M_AXIS_TLAST;
+  (* CONN_BUS_INFO = "axis_data_fifo_packetbody_M_AXIS xilinx.com:interface:axis:1.0 None TREADY" *) (* DONT_TOUCH *) wire axis_data_fifo_packetbody_M_AXIS_TREADY;
+  (* CONN_BUS_INFO = "axis_data_fifo_packetbody_M_AXIS xilinx.com:interface:axis:1.0 None TVALID" *) (* DONT_TOUCH *) wire axis_data_fifo_packetbody_M_AXIS_TVALID;
   (* CONN_BUS_INFO = "axis_data_fifo_packetsize_M_AXIS xilinx.com:interface:axis:1.0 None TDATA" *) (* DONT_TOUCH *) wire [15:0]axis_data_fifo_packetsize_M_AXIS_TDATA;
   (* CONN_BUS_INFO = "axis_data_fifo_packetsize_M_AXIS xilinx.com:interface:axis:1.0 None TREADY" *) (* DONT_TOUCH *) wire axis_data_fifo_packetsize_M_AXIS_TREADY;
   (* CONN_BUS_INFO = "axis_data_fifo_packetsize_M_AXIS xilinx.com:interface:axis:1.0 None TVALID" *) (* DONT_TOUCH *) wire axis_data_fifo_packetsize_M_AXIS_TVALID;
@@ -62,17 +62,22 @@ module top_level
   wire clk_in1_0_1;
   wire clk_wiz_0_clk_100mhz;
   wire ext_reset_in_0_1;
-  (* CONN_BUS_INFO = "packet_analyzer_0_axis_packetbody xilinx.com:interface:axis:1.0 None TDATA" *) (* DONT_TOUCH *) wire [511:0]packet_analyzer_0_axis_packetbody_TDATA;
-  (* CONN_BUS_INFO = "packet_analyzer_0_axis_packetbody xilinx.com:interface:axis:1.0 None TKEEP" *) (* DONT_TOUCH *) wire [63:0]packet_analyzer_0_axis_packetbody_TKEEP;
-  (* CONN_BUS_INFO = "packet_analyzer_0_axis_packetbody xilinx.com:interface:axis:1.0 None TLAST" *) (* DONT_TOUCH *) wire packet_analyzer_0_axis_packetbody_TLAST;
-  (* CONN_BUS_INFO = "packet_analyzer_0_axis_packetbody xilinx.com:interface:axis:1.0 None TREADY" *) (* DONT_TOUCH *) wire packet_analyzer_0_axis_packetbody_TREADY;
-  (* CONN_BUS_INFO = "packet_analyzer_0_axis_packetbody xilinx.com:interface:axis:1.0 None TVALID" *) (* DONT_TOUCH *) wire packet_analyzer_0_axis_packetbody_TVALID;
+  (* CONN_BUS_INFO = "header_adding_module_0_axis_pwithheader xilinx.com:interface:axis:1.0 None TDATA" *) (* DONT_TOUCH *) wire [127:0]header_adding_module_0_axis_pwithheader_TDATA;
+  (* CONN_BUS_INFO = "header_adding_module_0_axis_pwithheader xilinx.com:interface:axis:1.0 None TKEEP" *) (* DONT_TOUCH *) wire [15:0]header_adding_module_0_axis_pwithheader_TKEEP;
+  (* CONN_BUS_INFO = "header_adding_module_0_axis_pwithheader xilinx.com:interface:axis:1.0 None TLAST" *) (* DONT_TOUCH *) wire header_adding_module_0_axis_pwithheader_TLAST;
+  (* CONN_BUS_INFO = "header_adding_module_0_axis_pwithheader xilinx.com:interface:axis:1.0 None TREADY" *) (* DONT_TOUCH *) wire header_adding_module_0_axis_pwithheader_TREADY;
+  (* CONN_BUS_INFO = "header_adding_module_0_axis_pwithheader xilinx.com:interface:axis:1.0 None TVALID" *) (* DONT_TOUCH *) wire header_adding_module_0_axis_pwithheader_TVALID;
+  wire [127:0]packet_analyzer_0_axis_packetbody_TDATA;
+  wire [15:0]packet_analyzer_0_axis_packetbody_TKEEP;
+  wire packet_analyzer_0_axis_packetbody_TLAST;
+  wire packet_analyzer_0_axis_packetbody_TREADY;
+  wire packet_analyzer_0_axis_packetbody_TVALID;
   wire [15:0]packet_analyzer_0_axis_packetsize_TDATA;
   wire packet_analyzer_0_axis_packetsize_TREADY;
   wire packet_analyzer_0_axis_packetsize_TVALID;
   wire [15:0]packet_analyzer_0_packet_size;
-  wire [511:0]packet_gen_0_axis_out_TDATA;
-  wire [63:0]packet_gen_0_axis_out_TKEEP;
+  wire [127:0]packet_gen_0_axis_out_TDATA;
+  wire [15:0]packet_gen_0_axis_out_TKEEP;
   wire packet_gen_0_axis_out_TLAST;
   wire packet_gen_0_axis_out_TREADY;
   wire packet_gen_0_axis_out_TVALID;
@@ -108,18 +113,30 @@ module top_level
         .PIN(PIN_0_1),
         .Q(button_0_Q));
   top_level_data_consumer_0_1 data_consumer_0
-       (.axis_packetbody_tdata(axis_data_fifo_packetbody_M_AXIS_TDATA),
-        .axis_packetbody_tkeep(axis_data_fifo_packetbody_M_AXIS_TKEEP),
-        .axis_packetbody_tlast(axis_data_fifo_packetbody_M_AXIS_TLAST),
-        .axis_packetbody_tready(axis_data_fifo_packetbody_M_AXIS_TREADY),
-        .axis_packetbody_tvalid(axis_data_fifo_packetbody_M_AXIS_TVALID),
-        .axis_packetsize_tdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,axis_data_fifo_packetsize_M_AXIS_TDATA}),
-        .axis_packetsize_tkeep({1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1,1'b1}),
-        .axis_packetsize_tlast(1'b0),
-        .axis_packetsize_tready(axis_data_fifo_packetsize_M_AXIS_TREADY),
-        .axis_packetsize_tvalid(axis_data_fifo_packetsize_M_AXIS_TVALID),
+       (.axis_rx_tdata(header_adding_module_0_axis_pwithheader_TDATA),
+        .axis_rx_tkeep(header_adding_module_0_axis_pwithheader_TKEEP),
+        .axis_rx_tlast(header_adding_module_0_axis_pwithheader_TLAST),
+        .axis_rx_tready(header_adding_module_0_axis_pwithheader_TREADY),
+        .axis_rx_tvalid(header_adding_module_0_axis_pwithheader_TVALID),
         .clk(clk_wiz_0_clk_100mhz),
-        .packet_size(packet_analyzer_0_packet_size));
+        .packet_size(packet_analyzer_0_packet_size),
+        .resetn(proc_sys_reset_0_peripheral_aresetn));
+  top_level_header_adding_module_0_0 header_adding_module_0
+       (.axis_pbody_tdata(axis_data_fifo_packetbody_M_AXIS_TDATA),
+        .axis_pbody_tkeep(axis_data_fifo_packetbody_M_AXIS_TKEEP),
+        .axis_pbody_tlast(axis_data_fifo_packetbody_M_AXIS_TLAST),
+        .axis_pbody_tready(axis_data_fifo_packetbody_M_AXIS_TREADY),
+        .axis_pbody_tvalid(axis_data_fifo_packetbody_M_AXIS_TVALID),
+        .axis_psize_tdata(axis_data_fifo_packetsize_M_AXIS_TDATA),
+        .axis_psize_tready(axis_data_fifo_packetsize_M_AXIS_TREADY),
+        .axis_psize_tvalid(axis_data_fifo_packetsize_M_AXIS_TVALID),
+        .axis_pwithheader_tdata(header_adding_module_0_axis_pwithheader_TDATA),
+        .axis_pwithheader_tkeep(header_adding_module_0_axis_pwithheader_TKEEP),
+        .axis_pwithheader_tlast(header_adding_module_0_axis_pwithheader_TLAST),
+        .axis_pwithheader_tready(header_adding_module_0_axis_pwithheader_TREADY),
+        .axis_pwithheader_tvalid(header_adding_module_0_axis_pwithheader_TVALID),
+        .clk(clk_wiz_0_clk_100mhz),
+        .resetn(proc_sys_reset_0_peripheral_aresetn));
   top_level_packet_analyzer_0_0 packet_analyzer_0
        (.axis_in_tdata(packet_gen_0_axis_out_TDATA),
         .axis_in_tkeep(packet_gen_0_axis_out_TKEEP),
@@ -152,15 +169,20 @@ module top_level
         .clk_100mhz(clk_wiz_0_clk_100mhz),
         .peripheral_aresetn(proc_sys_reset_0_peripheral_aresetn));
   top_level_system_ila_0_3 system_ila_0
-       (.SLOT_0_AXIS_tdata(packet_analyzer_0_axis_packetbody_TDATA),
-        .SLOT_0_AXIS_tkeep(packet_analyzer_0_axis_packetbody_TKEEP),
-        .SLOT_0_AXIS_tlast(packet_analyzer_0_axis_packetbody_TLAST),
-        .SLOT_0_AXIS_tready(packet_analyzer_0_axis_packetbody_TREADY),
-        .SLOT_0_AXIS_tvalid(packet_analyzer_0_axis_packetbody_TVALID),
+       (.SLOT_0_AXIS_tdata(axis_data_fifo_packetbody_M_AXIS_TDATA),
+        .SLOT_0_AXIS_tkeep(axis_data_fifo_packetbody_M_AXIS_TKEEP),
+        .SLOT_0_AXIS_tlast(axis_data_fifo_packetbody_M_AXIS_TLAST),
+        .SLOT_0_AXIS_tready(axis_data_fifo_packetbody_M_AXIS_TREADY),
+        .SLOT_0_AXIS_tvalid(axis_data_fifo_packetbody_M_AXIS_TVALID),
         .SLOT_1_AXIS_tdata(axis_data_fifo_packetsize_M_AXIS_TDATA),
         .SLOT_1_AXIS_tlast(1'b0),
         .SLOT_1_AXIS_tready(axis_data_fifo_packetsize_M_AXIS_TREADY),
         .SLOT_1_AXIS_tvalid(axis_data_fifo_packetsize_M_AXIS_TVALID),
+        .SLOT_2_AXIS_tdata(header_adding_module_0_axis_pwithheader_TDATA),
+        .SLOT_2_AXIS_tkeep(header_adding_module_0_axis_pwithheader_TKEEP),
+        .SLOT_2_AXIS_tlast(header_adding_module_0_axis_pwithheader_TLAST),
+        .SLOT_2_AXIS_tready(header_adding_module_0_axis_pwithheader_TREADY),
+        .SLOT_2_AXIS_tvalid(header_adding_module_0_axis_pwithheader_TVALID),
         .clk(clk_wiz_0_clk_100mhz),
         .probe0(packet_analyzer_0_packet_size),
         .resetn(1'b1));

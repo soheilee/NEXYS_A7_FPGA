@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x93DDAD79FC8D9AB2",
+      "boundary_crc": "0x87A8184A957B6B3",
       "design_src": "SBD",
       "device": "xc7a100tcsg324-1",
       "name": "bd_9afd",
@@ -31,11 +31,11 @@
           },
           "HAS_TKEEP": {
             "value": "1",
-            "value_src": "default"
+            "value_src": "default_prop"
           },
           "HAS_TLAST": {
             "value": "1",
-            "value_src": "default"
+            "value_src": "default_prop"
           },
           "HAS_TREADY": {
             "value": "1",
@@ -58,8 +58,8 @@
             "value_src": "default"
           },
           "TDATA_NUM_BYTES": {
-            "value": "64",
-            "value_src": "default"
+            "value": "16",
+            "value_src": "default_prop"
           },
           "TDEST_WIDTH": {
             "value": "0",
@@ -118,6 +118,65 @@
           },
           "TDATA_NUM_BYTES": {
             "value": "2",
+            "value_src": "default_prop"
+          },
+          "TDEST_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "TID_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "TUSER_WIDTH": {
+            "value": "0",
+            "value_src": "default"
+          }
+        }
+      },
+      "SLOT_2_AXIS": {
+        "mode": "Monitor",
+        "vlnv_bus_definition": "xilinx.com:interface:axis:1.0",
+        "vlnv": "xilinx.com:interface:axis_rtl:1.0",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "/source_100mhz/clk_wiz_0_clk_out1",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "HAS_TKEEP": {
+            "value": "1",
+            "value_src": "default"
+          },
+          "HAS_TLAST": {
+            "value": "1",
+            "value_src": "default"
+          },
+          "HAS_TREADY": {
+            "value": "1",
+            "value_src": "default"
+          },
+          "HAS_TSTRB": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          },
+          "TDATA_NUM_BYTES": {
+            "value": "16",
             "value_src": "default"
           },
           "TDEST_WIDTH": {
@@ -141,7 +200,7 @@
         "direction": "I",
         "parameters": {
           "ASSOCIATED_BUSIF": {
-            "value": "SLOT_0_AXIS:SLOT_1_AXIS"
+            "value": "SLOT_0_AXIS:SLOT_1_AXIS:SLOT_2_AXIS"
           },
           "ASSOCIATED_RESET": {
             "value": "resetn"
@@ -223,7 +282,7 @@
             "value": "Native"
           },
           "C_NUM_OF_PROBES": {
-            "value": "10"
+            "value": "15"
           },
           "C_PROBE0_MU_CNT": {
             "value": "1"
@@ -234,17 +293,47 @@
           "C_PROBE0_WIDTH": {
             "value": "16"
           },
+          "C_PROBE10_TYPE": {
+            "value": "0"
+          },
+          "C_PROBE10_WIDTH": {
+            "value": "128"
+          },
+          "C_PROBE11_TYPE": {
+            "value": "0"
+          },
+          "C_PROBE11_WIDTH": {
+            "value": "16"
+          },
+          "C_PROBE12_TYPE": {
+            "value": "0"
+          },
+          "C_PROBE12_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE13_TYPE": {
+            "value": "0"
+          },
+          "C_PROBE13_WIDTH": {
+            "value": "1"
+          },
+          "C_PROBE14_TYPE": {
+            "value": "0"
+          },
+          "C_PROBE14_WIDTH": {
+            "value": "1"
+          },
           "C_PROBE1_TYPE": {
             "value": "0"
           },
           "C_PROBE1_WIDTH": {
-            "value": "512"
+            "value": "128"
           },
           "C_PROBE2_TYPE": {
             "value": "0"
           },
           "C_PROBE2_WIDTH": {
-            "value": "64"
+            "value": "16"
           },
           "C_PROBE3_TYPE": {
             "value": "0"
@@ -312,13 +401,13 @@
             "value": "false"
           },
           "C_NUM_MONITOR_SLOTS": {
-            "value": "2"
+            "value": "3"
           },
           "C_NUM_OF_PROBES": {
             "value": "0"
           },
           "C_SLOT_0_AXIS_TDATA_WIDTH": {
-            "value": "512"
+            "value": "128"
           },
           "C_SLOT_0_AXIS_TDEST_WIDTH": {
             "value": "0"
@@ -370,6 +459,33 @@
           },
           "C_SLOT_1_MON_MODE": {
             "value": "FT"
+          },
+          "C_SLOT_2_AXIS_TDATA_WIDTH": {
+            "value": "128"
+          },
+          "C_SLOT_2_AXIS_TDEST_WIDTH": {
+            "value": "0"
+          },
+          "C_SLOT_2_AXIS_TID_WIDTH": {
+            "value": "0"
+          },
+          "C_SLOT_2_AXIS_TUSER_WIDTH": {
+            "value": "0"
+          },
+          "C_SLOT_2_AXI_PROTOCOL": {
+            "value": "AXI4S"
+          },
+          "C_SLOT_2_HAS_TKEEP": {
+            "value": "1"
+          },
+          "C_SLOT_2_HAS_TREADY": {
+            "value": "1"
+          },
+          "C_SLOT_2_HAS_TSTRB": {
+            "value": "0"
+          },
+          "C_SLOT_2_MON_MODE": {
+            "value": "FT"
           }
         }
       }
@@ -385,6 +501,12 @@
         "interface_ports": [
           "SLOT_1_AXIS",
           "g_inst/slot_1_axis"
+        ]
+      },
+      "Conn2": {
+        "interface_ports": [
+          "SLOT_2_AXIS",
+          "g_inst/slot_2_axis"
         ]
       }
     },
@@ -448,6 +570,36 @@
         "ports": [
           "g_inst/m_slot_1_axis_tvalid",
           "ila_lib/probe7"
+        ]
+      },
+      "net_slot_2_axis_tdata": {
+        "ports": [
+          "g_inst/m_slot_2_axis_tdata",
+          "ila_lib/probe10"
+        ]
+      },
+      "net_slot_2_axis_tkeep": {
+        "ports": [
+          "g_inst/m_slot_2_axis_tkeep",
+          "ila_lib/probe11"
+        ]
+      },
+      "net_slot_2_axis_tlast": {
+        "ports": [
+          "g_inst/m_slot_2_axis_tlast",
+          "ila_lib/probe14"
+        ]
+      },
+      "net_slot_2_axis_tready": {
+        "ports": [
+          "g_inst/m_slot_2_axis_tready",
+          "ila_lib/probe13"
+        ]
+      },
+      "net_slot_2_axis_tvalid": {
+        "ports": [
+          "g_inst/m_slot_2_axis_tvalid",
+          "ila_lib/probe12"
         ]
       },
       "probe0_1": {
