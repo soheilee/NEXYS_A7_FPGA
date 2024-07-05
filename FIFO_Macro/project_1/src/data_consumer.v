@@ -6,10 +6,7 @@ module data_consumer # (parameter DW=128)
     input[DW/8-1:0] axis_rx_tkeep,
     input           axis_rx_tlast,
     input           axis_rx_tvalid,
-    output reg      axis_rx_tready,
-
-
-    input [15:0]  packet_size
+    output reg      axis_rx_tready
 );
 
 always @(posedge clk) begin
