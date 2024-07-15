@@ -19,7 +19,7 @@
       "packet_gen": "",
       "data_consumer": "",
       "system_ila": "",
-      "packet_analyzer_0": ""
+      "analyzer_module": ""
     },
     "ports": {
       "CLK100MHZ": {
@@ -27,7 +27,7 @@
         "direction": "I",
         "parameters": {
           "CLK_DOMAIN": {
-            "value": "top_level_clk_in1_0",
+            "value": "top_level_CLK100MHZ",
             "value_src": "default"
           },
           "FREQ_HZ": {
@@ -469,14 +469,14 @@
           }
         }
       },
-      "packet_analyzer_0": {
-        "vlnv": "xilinx.com:module_ref:packet_analyzer:1.0",
-        "xci_name": "top_level_packet_analyzer_0_0",
-        "xci_path": "ip\\top_level_packet_analyzer_0_0\\top_level_packet_analyzer_0_0.xci",
-        "inst_hier_path": "packet_analyzer_0",
+      "analyzer_module": {
+        "vlnv": "xilinx.com:module_ref:analyzer_module:1.0",
+        "xci_name": "top_level_analyzer_module_0_0",
+        "xci_path": "ip\\top_level_analyzer_module_0_0\\top_level_analyzer_module_0_0.xci",
+        "inst_hier_path": "analyzer_module",
         "reference_info": {
           "ref_type": "hdl",
-          "ref_name": "packet_analyzer",
+          "ref_name": "analyzer_module",
           "boundary_crc": "0x0"
         },
         "interface_ports": {
@@ -678,14 +678,14 @@
     "interface_nets": {
       "packet_analyzer_0_axis_out": {
         "interface_ports": [
-          "packet_analyzer_0/axis_in",
+          "analyzer_module/axis_in",
           "packet_gen/axis_out",
           "system_ila/SLOT_0_AXIS"
         ]
       },
       "packet_analyzer_0_axis_out1": {
         "interface_ports": [
-          "packet_analyzer_0/axis_out",
+          "analyzer_module/axis_out",
           "data_consumer/axis_rx",
           "system_ila/SLOT_1_AXIS"
         ]
@@ -717,7 +717,7 @@
           "packet_gen/clk",
           "data_consumer/clk",
           "system_ila/clk",
-          "packet_analyzer_0/clk"
+          "analyzer_module/clk"
         ]
       },
       "ext_reset_in_0_1": {
@@ -731,7 +731,7 @@
           "source_100mhz/peripheral_aresetn",
           "packet_gen/resetn",
           "data_consumer/resetn",
-          "packet_analyzer_0/resetn"
+          "analyzer_module/resetn"
         ]
       }
     }
