@@ -27,8 +27,8 @@ preplace netloc packet_analyzer_0_axis_out1 1 4 1 1030 80n
 levelinfo -pg 1 0 170 420 620 890 1150 1250
 pagesize -pg 1 -db -bbox -sgen -130 0 1250 320
 ",
-   "No Loops_ScaleFactor":"1.29855",
-   "No Loops_TopLeft":"-130,-199",
+   "No Loops_ScaleFactor":"1.25942",
+   "No Loops_TopLeft":"-130,-210",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
 preplace port port-id_CLK100MHZ -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD

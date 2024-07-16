@@ -1,7 +1,7 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
-// Date        : Mon Jul 15 19:06:14 2024
+// Date        : Tue Jul 16 10:30:04 2024
 // Host        : LUDMW030265 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               c:/Users/mottaghs/Documents/GitHub/NEXYS_A7_FPGA/FIFO_Macro/project_1/project_1.gen/sources_1/bd/top_level/ip/top_level_analyzer_module_0_0/top_level_analyzer_module_0_0_sim_netlist.v
@@ -1467,7 +1467,6 @@ module top_level_analyzer_module_0_0_analyzer_module
   (* CASCADE_HEIGHT = "0" *) 
   (* CDC_SYNC_STAGES = "3" *) 
   (* CLOCKING_MODE = "common_clock" *) 
-  (* DONT_TOUCH *) 
   (* ECC_MODE = "no_ecc" *) 
   (* EN_ADV_FEATURE_AXIS = "16'b0001000000000000" *) 
   (* EN_ADV_FEATURE_AXIS_INT = "16'b0001000000000000" *) 
@@ -1548,7 +1547,6 @@ module top_level_analyzer_module_0_0_analyzer_module
   (* CASCADE_HEIGHT = "0" *) 
   (* CDC_SYNC_STAGES = "3" *) 
   (* CLOCKING_MODE = "common_clock" *) 
-  (* DONT_TOUCH *) 
   (* ECC_MODE = "no_ecc" *) 
   (* EN_ADV_FEATURE_AXIS = "16'b0001000000000000" *) 
   (* EN_ADV_FEATURE_AXIS_INT = "16'b0001000000000000" *) 

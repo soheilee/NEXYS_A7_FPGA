@@ -1,7 +1,7 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.1.1 (win64) Build 3286242 Wed Jul 28 13:10:47 MDT 2021
--- Date        : Mon Jul 15 19:06:14 2024
+-- Date        : Tue Jul 16 10:30:04 2024
 -- Host        : LUDMW030265 running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               c:/Users/mottaghs/Documents/GitHub/NEXYS_A7_FPGA/FIFO_Macro/project_1/project_1.gen/sources_1/bd/top_level/ip/top_level_analyzer_module_0_0/top_level_analyzer_module_0_0_sim_netlist.vhdl
@@ -8592,8 +8592,6 @@ architecture STRUCTURE of top_level_analyzer_module_0_0_analyzer_module is
   attribute CDC_SYNC_STAGES of packet_data_fifo : label is 3;
   attribute CLOCKING_MODE : string;
   attribute CLOCKING_MODE of packet_data_fifo : label is "common_clock";
-  attribute DONT_TOUCH : boolean;
-  attribute DONT_TOUCH of packet_data_fifo : label is std.standard.true;
   attribute ECC_MODE : string;
   attribute ECC_MODE of packet_data_fifo : label is "no_ecc";
   attribute EN_ADV_FEATURE_AXIS : string;
@@ -8670,7 +8668,6 @@ architecture STRUCTURE of top_level_analyzer_module_0_0_analyzer_module is
   attribute CASCADE_HEIGHT of packet_length_fifo : label is 0;
   attribute CDC_SYNC_STAGES of packet_length_fifo : label is 3;
   attribute CLOCKING_MODE of packet_length_fifo : label is "common_clock";
-  attribute DONT_TOUCH of packet_length_fifo : label is std.standard.true;
   attribute ECC_MODE of packet_length_fifo : label is "no_ecc";
   attribute EN_ADV_FEATURE_AXIS of packet_length_fifo : label is "16'b0001000000000000";
   attribute EN_ADV_FEATURE_AXIS_INT of packet_length_fifo : label is "16'b0001000000000000";
